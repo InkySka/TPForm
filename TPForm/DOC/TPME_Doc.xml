@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TPMeshEditor</name>
+    </assembly>
+    <members>
+        <member name="T:TPMeshEditor.FileOperations">
+            <summary>
+            Class that holds the current directory and provides the list of files to work on.
+            </summary>
+            <remarks>
+            Initialised on startup, globally available within assembly.
+            Actually more similar to a struct, using properties more than usual rather than methods.
+            </remarks>
+        </member>
+        <member name="F:TPMeshEditor.FileOperations.log">
+            <summary>
+            Internal log file.
+            </summary>
+        </member>
+        <member name="F:TPMeshEditor.FileOperations.inputDirectory">
+            <summary>
+            Input directory; accessed through property.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.FileOperations.#cctor">
+            <summary>
+            Initialises the class with all the information the programme needs.
+            </summary>
+        </member>
+        <member name="P:TPMeshEditor.FileOperations.FileFormats">
+            <summary>
+            File formats that need to be discovered by the programme.
+            </summary>
+            <remarks>
+            Initialised in the default parameterless constructor. 
+            Not meant to be modified by the user.
+            </remarks>
+        </member>
+        <member name="P:TPMeshEditor.FileOperations.InputDirectory">
+            <summary>
+            Current input directory.
+            </summary>
+        </member>
+        <member name="P:TPMeshEditor.FileOperations.Files">
+            <summary>
+            Correct-format files currently in the directory.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.FileOperations.PeekLog">
+            <summary>
+            Returns the log without deleting it.
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>Prefer DumpLog instead.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.FileOperations.DumpLog">
+            <summary>
+            Returns the log and deletes it (like flushing a stream).
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>This function should be preferred to PeekLog.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.FileOperations.FillFileList">
+            <summary>
+            Fills file list.
+            </summary>
+            <remarks>Use this and not FindFiles directly.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.FileOperations.FindFiles(System.String)">
+            <summary>
+            Internal functions that finds all files with the desired extension. Do not use directly.
+            </summary>
+            <param name="extension">The extension to look for.</param>
+            <returns>list of files with the correct extension.</returns>
+            <remarks>Only for internal use; should only read from - and write to - internal variables.
+            Used during initialisation to fill the file list.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.MainForm.OpenToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Function to open Folder Select dialog.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:TPMeshEditor.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TPMeshEditor.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TPMeshEditor.Data4Bytes">
+            <summary>
+            Represents 4 bytes of data, like a C/C++ union.
+            </summary>
+            <remarks>
+            Properties are used to access byte and short arrays to avoid size mismatch.
+            </remarks>
+        </member>
+        <member name="M:TPMeshEditor.TPMesh.TPVertex.#ctor(TPMeshEditor.Data4Bytes[])">
+            <summary>
+            Initialises the vertex from a raw data array.
+            </summary>
+            <param name="_rawdata"></param>
+        </member>
+        <member name="M:TPMeshEditor.TPMesh.TPVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Initialises the vertex from single values. Calls an internal setup function.
+            </summary>
+            <param name="_x"></param>
+            <param name="_y"></param>
+            <param name="_z"></param>
+            <param name="_vt_u"></param>
+            <param name="_vt_v"></param>
+            <param name="_ukn1"></param>
+            <param name="_ukn2"></param>
+            <param name="_transp"></param>
+        </member>
+        <member name="M:TPMeshEditor.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:TPMeshEditor.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:TPMeshEditor.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TPMeshEditor.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
