@@ -70,6 +70,8 @@ namespace TPMeshEditor
         public int debugLevel = 0;
         private class TPModel
         {
+            private StringBuilder log;
+
             /// <summary>
             /// Main constructor.
             /// </summary>
@@ -78,21 +80,14 @@ namespace TPMeshEditor
             /// </param>
             TPModel(List<Data4Bytes> _rawdata)
             {
-                if (_rawdata.Count() < 1 || _rawdata.Count() < _rawdata[0].ui + 4)
+                if (_rawdata.Count() < 1 || _rawdata.Count() < _rawdata[0].ui + 1)
                 {
                     throw new ArgumentException("Incorrect initialisation array size.");
                 }
 
-                Size = _rawdata[0].ui;
-                ID = _rawdata[1].ui;
-                VertexCount = _rawdata[2].ui;
+                log = new StringBuilder();
 
-                //should allow for vertex size that is more than 32 bytes.
-                for (uint i = 0; i < VertexCount; ++i)
-                {
-
-                }
-
+                ImportData(_rawdata);
             }
 
             private List<TPVertex> vertices;
@@ -123,9 +118,61 @@ namespace TPMeshEditor
                 get;
                 private set;
             }
+
+            public void ImportData(List<Data4Bytes> _rawdata)
+            {
+                Size = _rawdata[0].ui;
+                ID = _rawdata[1].ui;
+                VertexCount = _rawdata[2].ui;
+
+                uint currentPositionInData = 3;
+
+                //should allow for vertex size that is more than 32 bytes.
+                uint i = VertexCount;
+                while (i-- > 0)
+                {
+                    uint tempsize = _rawdata[(int)currentPositionInData].ui;
+
+                    TPVertex temp;
+
+                    //adds vertex data to temp vertex, remembering that we are dealing with 4-byte data and the size counter counts single bytes
+                    //hence a 32-byte vertex (36 with counter) is an 8 (9) -element array
+                    temp = new TPVertex(_rawdata.GetRange((int)currentPositionInData, (int)(currentPositionInData + (tempsize + 4) / 4)));
+                    vertices.Add(temp);
+
+                    currentPositionInData += (tempsize + 4) / 4;
+                }
+
+                FaceCount = _rawdata[(int)currentPositionInData].ui;
+                ++currentPositionInData;
+
+                uint j = FaceCount;
+                while (j-- > 0)
+                {
+                    uint tempsize = _rawdata[(int)currentPositionInData].ui;
+
+                    TPFace temp;
+
+                    //adds face data to temp face, remembering that we are dealing with 4-byte data and the size counter counts single bytes
+                    temp = new TPFace(_rawdata.GetRange((int)currentPositionInData, (int)(currentPositionInData + (tempsize + 4) / 4)));
+                    faces.Add(temp);
+
+                    currentPositionInData += (tempsize + 4) / 4;
+                }
+            }
+
+            private void ImportVertices(List<Data4Bytes> _rawdata)
+            {
+
+            }
+
+            private void ImportFaces(List<Data4Bytes> _rawdata)
+            {
+
+            }
         }
 
-        private class TPVertex
+        protected class TPVertex
         {
             private StringBuilder log;
 
@@ -138,7 +185,7 @@ namespace TPMeshEditor
             /// Initialises the vertex from a raw data array.
             /// </summary>
             /// <param name="_rawdata"></param>
-            TPVertex(List<Data4Bytes> _rawdata)
+            public TPVertex(List<Data4Bytes> _rawdata)
             {
                 if (_rawdata.Count() < DefaultSize)
                 {
@@ -165,8 +212,8 @@ namespace TPMeshEditor
                     SetAdditionalData(_rawdata.GetRange((int)DefaultSize, _rawdata.Count));
                 }
             }
-            
-            TPVertex(uint _sz, float _x, float _y, float _z,
+
+            public TPVertex(uint _sz, float _x, float _y, float _z,
                 float _vt_u, float _vt_v,
                 uint _ukn1, uint _ukn2, uint _transp, List<Data4Bytes> _ukn_res)
             {
@@ -214,7 +261,7 @@ namespace TPMeshEditor
             public List<Data4Bytes> Unknown_Reserved { get; set; }
         }
 
-        private class TPFace
+        protected class TPFace
         {
             private StringBuilder log;
 
@@ -222,7 +269,7 @@ namespace TPMeshEditor
             /// Default size, INCLUDING size counter.
             /// </summary>
             private static readonly uint DefaultSize = 3;
-            TPFace(List<Data4Bytes> _rawdata)
+            public TPFace(List<Data4Bytes> _rawdata)
             {
                 if (_rawdata.Count() < DefaultSize)
                 {
@@ -247,7 +294,7 @@ namespace TPMeshEditor
                 else Unknown_Reserved = null;
             }
 
-            TPFace(uint _sz, short _v1, short _v2, short _v3, short _mid, List<Data4Bytes> _ukn_res)
+            public TPFace(uint _sz, short _v1, short _v2, short _v3, short _mid, List<Data4Bytes> _ukn_res)
             {
                 Set(_sz, _v1, _v2, _v3, _mid);
                 SetAdditionalData(_ukn_res);
