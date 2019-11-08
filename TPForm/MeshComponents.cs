@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace TPMeshEditor
 {
@@ -66,8 +67,34 @@ namespace TPMeshEditor
 
     internal partial class TPMesh
     {
+        public int debugLevel = 0;
         private class TPModel
         {
+            /// <summary>
+            /// Main constructor.
+            /// </summary>
+            /// <param name="_rawdata">
+            /// Supply data from ModelSize to the last animation frame byte.
+            /// </param>
+            TPModel(List<Data4Bytes> _rawdata)
+            {
+                if (_rawdata.Count() < 1 || _rawdata.Count() < _rawdata[0].ui + 4)
+                {
+                    throw new ArgumentException("Incorrect initialisation array size.");
+                }
+
+                Size = _rawdata[0].ui;
+                ID = _rawdata[1].ui;
+                VertexCount = _rawdata[2].ui;
+
+                //should allow for vertex size that is more than 32 bytes.
+                for (uint i = 0; i < VertexCount; ++i)
+                {
+
+                }
+
+            }
+
             private List<TPVertex> vertices;
             private List<TPFace> faces;
 
@@ -79,6 +106,7 @@ namespace TPMeshEditor
             public uint ID
             {
                 get;
+                private set;
             }
             public uint VertexCount
             {
@@ -99,50 +127,58 @@ namespace TPMeshEditor
 
         private class TPVertex
         {
+            private StringBuilder log;
+
+            /// <summary>
+            /// Default size, INCLUDING size counter.
+            /// </summary>
+            private static readonly uint DefaultSize = 9;
+
             /// <summary>
             /// Initialises the vertex from a raw data array.
             /// </summary>
             /// <param name="_rawdata"></param>
-            TPVertex(Data4Bytes[] _rawdata)
+            TPVertex(List<Data4Bytes> _rawdata)
             {
-                if (_rawdata.Count() != 8)
+                if (_rawdata.Count() < DefaultSize)
                 {
-                    throw new ArgumentException("The initialisation vector's size must be 8.");
+                    throw new ArgumentException("The initialisation vector's size must be at least " + DefaultSize);
                 }
 
+                Unknown_Reserved = new List<Data4Bytes>();
+                log = new StringBuilder();
+
                 Set(
-                    _rawdata[0].f,
+                    _rawdata[0].ui,
                     _rawdata[1].f,
                     _rawdata[2].f,
                     _rawdata[3].f,
                     _rawdata[4].f,
-                    _rawdata[5].ui,
+                    _rawdata[5].f,
                     _rawdata[6].ui,
-                    _rawdata[7].ui
+                    _rawdata[7].ui,
+                    _rawdata[8].ui
                     );
+
+                if (_rawdata.Count > DefaultSize)
+                {
+                    SetAdditionalData(_rawdata.GetRange((int)DefaultSize, _rawdata.Count));
+                }
             }
-            /// <summary>
-            /// Initialises the vertex from single values. Calls an internal setup function.
-            /// </summary>
-            /// <param name="_x"></param>
-            /// <param name="_y"></param>
-            /// <param name="_z"></param>
-            /// <param name="_vt_u"></param>
-            /// <param name="_vt_v"></param>
-            /// <param name="_ukn1"></param>
-            /// <param name="_ukn2"></param>
-            /// <param name="_transp"></param>
-            TPVertex(float _x, float _y, float _z,
+            
+            TPVertex(uint _sz, float _x, float _y, float _z,
                 float _vt_u, float _vt_v,
-                uint _ukn1, uint _ukn2, uint _transp)
+                uint _ukn1, uint _ukn2, uint _transp, List<Data4Bytes> _ukn_res)
             {
-                Set(_x, _y, _z, _vt_u, _vt_v, _ukn1, _ukn2, _transp);
+                Set(_sz, _x, _y, _z, _vt_u, _vt_v, _ukn1, _ukn2, _transp);
+                SetAdditionalData(_ukn_res);
             }
 
-            public void Set(float _x, float _y, float _z,
+            public void Set(uint _sz, float _x, float _y, float _z,
                 float _vt_u, float _vt_v,
                 uint _ukn1, uint _ukn2, uint _transp)
             {
+                Size = _sz;
                 X = _x;
                 Y = _y;
                 Z = _z;
@@ -153,52 +189,101 @@ namespace TPMeshEditor
                 Transparency = _transp;
             }
 
-            float X { get; set; }
-            float Y { get; set; }
-            float Z { get; set; }
-            float Vt_u { get; set; }
-            float Vt_v { get; set; }
-            uint Unknown1 { get; set; }
-            uint Unknown2 { get; set; }
-            uint Transparency { get; set; }
+            public void SetAdditionalData(List<Data4Bytes> _ukn_res)
+            {
+                log.AppendLine(new WarningString("Initialised " + _ukn_res.Count + " bytes more than expected.", UrgencyLevel.warning).ToString());
+                Unknown_Reserved = _ukn_res;
+            }
+
+            public uint Size { get; private set; }
+            public float X { get; set; }
+            public float Y { get; set; }
+            public float Z { get; set; }
+            public float Vt_u { get; set; }
+            public float Vt_v { get; set; }
+            public uint Unknown1 { get; set; }
+            public uint Unknown2 { get; set; }
+            public uint Transparency { get; set; }
+
+            /// <summary>
+            /// Allows for future implementations of arbitrary sizes; should never be used during normal operations.
+            /// </summary>
+            /// <remarks>
+            /// The class issues a warning when this is filled on initialisation.
+            /// </remarks>
+            public List<Data4Bytes> Unknown_Reserved { get; set; }
         }
 
         private class TPFace
         {
-            TPFace(Data4Bytes[] _rawdata)
+            private StringBuilder log;
+
+            /// <summary>
+            /// Default size, INCLUDING size counter.
+            /// </summary>
+            private static readonly uint DefaultSize = 3;
+            TPFace(List<Data4Bytes> _rawdata)
             {
-                if (_rawdata.Count() != 2)
+                if (_rawdata.Count() < DefaultSize)
                 {
-                    throw new ArgumentException("The initialisation vector's size must be 2.");
+                    throw new ArgumentException("The initialisation vector's size must be of at least " + DefaultSize);
                 }
 
+                Unknown_Reserved = new List<Data4Bytes>();
+                log = new StringBuilder();
+
                 Set(
-                    _rawdata[0].S[0],
-                    _rawdata[0].S[1],
+                    _rawdata[0].ui,
                     _rawdata[1].S[0],
-                    _rawdata[1].S[1]
+                    _rawdata[1].S[1],
+                    _rawdata[2].S[0],
+                    _rawdata[2].S[1]
                     );
+
+                if (_rawdata.Count > DefaultSize)
+                {
+                    SetAdditionalData(_rawdata.GetRange((int)DefaultSize, _rawdata.Count));
+                }
+                else Unknown_Reserved = null;
             }
 
-            TPFace(short _v1, short _v2, short _v3, short _mid)
+            TPFace(uint _sz, short _v1, short _v2, short _v3, short _mid, List<Data4Bytes> _ukn_res)
             {
-                Set(_v1, _v2, _v3, _mid);
+                Set(_sz, _v1, _v2, _v3, _mid);
+                SetAdditionalData(_ukn_res);
             }
 
-            public void Set(short _v1, short _v2, short _v3, short _mid)
+            public void Set(uint _sz, short _v1, short _v2, short _v3, short _mid)
             {
+                Size = _sz;
                 V1 = _v1;
                 V2 = _v2;
                 V3 = _v3;
                 MId = _mid;
             }
+
+            public void SetAdditionalData(List<Data4Bytes> _ukn_res)
+            {
+                log.AppendLine(new WarningString("Initialised " + _ukn_res.Count + " bytes more than expected.", UrgencyLevel.warning).ToString());
+                Unknown_Reserved = _ukn_res;
+            }
+
             //Vertices IDs.
-            short V1 { get; set; }
-            short V2 { get; set; }
-            short V3 { get; set; }
+            public uint Size { get; private set; }
+            public short V1 { get; set; }
+            public short V2 { get; set; }
+            public short V3 { get; set; }
 
             //Material ID.
-            short MId { get; set; }
+            public short MId { get; set; }
+
+            /// <summary>
+            /// Allows for future implementations of arbitrary sizes; should never be used during normal operations.
+            /// </summary>
+            /// <remarks>
+            /// The class issues a warning when this is filled on initialisation.
+            /// </remarks>
+            public List<Data4Bytes> Unknown_Reserved { get; set; }
         }
     }
 }

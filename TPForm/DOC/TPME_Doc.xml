@@ -76,6 +76,13 @@
             <remarks>Only for internal use; should only read from - and write to - internal variables.
             Used during initialisation to fill the file list.</remarks>
         </member>
+        <member name="M:TPMeshEditor.WarningString.#ctor(System.String,TPMeshEditor.UrgencyLevel)">
+            <summary>
+            Represent a debug message.
+            </summary>
+            <param name="_msg">Message to store.</param>
+            <param name="_ulvl">Urgency level.</param>
+        </member>
         <member name="M:TPMeshEditor.MainForm.OpenToolStripMenuItem_Click(System.Object,System.EventArgs)">
             <summary>
             Function to open Folder Select dialog.
@@ -108,24 +115,45 @@
             Properties are used to access byte and short arrays to avoid size mismatch.
             </remarks>
         </member>
-        <member name="M:TPMeshEditor.TPMesh.TPVertex.#ctor(TPMeshEditor.Data4Bytes[])">
+        <member name="M:TPMeshEditor.TPMesh.TPModel.#ctor(System.Collections.Generic.List{TPMeshEditor.Data4Bytes})">
+            <summary>
+            Main constructor.
+            </summary>
+            <param name="_rawdata">
+            Supply data from ModelSize to the last animation frame byte.
+            </param>
+        </member>
+        <member name="F:TPMeshEditor.TPMesh.TPVertex.DefaultSize">
+            <summary>
+            Default size, INCLUDING size counter.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.TPMesh.TPVertex.#ctor(System.Collections.Generic.List{TPMeshEditor.Data4Bytes})">
             <summary>
             Initialises the vertex from a raw data array.
             </summary>
             <param name="_rawdata"></param>
         </member>
-        <member name="M:TPMeshEditor.TPMesh.TPVertex.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="P:TPMeshEditor.TPMesh.TPVertex.Unknown_Reserved">
             <summary>
-            Initialises the vertex from single values. Calls an internal setup function.
+            Allows for future implementations of arbitrary sizes; should never be used during normal operations.
             </summary>
-            <param name="_x"></param>
-            <param name="_y"></param>
-            <param name="_z"></param>
-            <param name="_vt_u"></param>
-            <param name="_vt_v"></param>
-            <param name="_ukn1"></param>
-            <param name="_ukn2"></param>
-            <param name="_transp"></param>
+            <remarks>
+            The class issues a warning when this is filled on initialisation.
+            </remarks>
+        </member>
+        <member name="F:TPMeshEditor.TPMesh.TPFace.DefaultSize">
+            <summary>
+            Default size, INCLUDING size counter.
+            </summary>
+        </member>
+        <member name="P:TPMeshEditor.TPMesh.TPFace.Unknown_Reserved">
+            <summary>
+            Allows for future implementations of arbitrary sizes; should never be used during normal operations.
+            </summary>
+            <remarks>
+            The class issues a warning when this is filled on initialisation.
+            </remarks>
         </member>
         <member name="M:TPMeshEditor.Program.Main">
             <summary>
