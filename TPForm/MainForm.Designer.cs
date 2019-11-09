@@ -46,6 +46,7 @@
             this.log.Multiline = true;
             this.log.Name = "log";
             this.log.ReadOnly = true;
+            this.log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.log.Size = new System.Drawing.Size(467, 411);
             this.log.TabIndex = 1;
             // 

@@ -51,7 +51,7 @@ namespace TPMeshEditor
                 ((Data4Bytes)_rawdata.GetRange(8, 4)).S[0],     //_v3
                 ((Data4Bytes)_rawdata.GetRange(8, 4)).S[1]);    //_mid
 
-            if (_rawdata.Count > 3)
+            if (_rawdata.Count > DefaultSize)
             {
                 SetAdditionalData(_rawdata.Skip((int)DefaultSize).ToList());
             }

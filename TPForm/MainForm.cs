@@ -54,7 +54,7 @@ namespace TPMeshEditor
 
         private void UpdateSelectedFileCount()
         {
-            selectedItemsCount.Text=("Checked items: " + selectedItemsCounter);
+            selectedItemsCount.Text = ("Checked items: " + selectedItemsCounter);
         }
 
 
@@ -78,7 +78,7 @@ namespace TPMeshEditor
         {
             using (FolderBrowserDialog tempDialog = new FolderBrowserDialog())
             {
-                
+
                 //tempDialog.RootFolder = Environment.SpecialFolder.Programs;
                 //tempDialog.SelectedPath = FileOperations.InputDirectory;
 
@@ -110,7 +110,15 @@ namespace TPMeshEditor
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-
+            //List<string> filesToConvert = fileList.CheckedItems.;
+            foreach (ListViewItem s in fileList.CheckedItems)
+            {
+                WriteLog(FileOperations.InputDirectory + "/" + s.Text);
+                Global.meshes.Clear();
+                TPMesh temp = new TPMesh(FileOperations.InputDirectory +"/"+ s.Text);
+                Global.meshes.Add(temp);
+                WriteLog(temp.PeekLog());
+            }
         }
     }
 }

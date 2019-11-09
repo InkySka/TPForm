@@ -102,7 +102,7 @@ namespace TPMeshEditor
             Transparency = _transp;
             if (Transparency != (uint)0xFFFFFFFF)
             {
-                log.AppendLine(new WarningString("Transparency is not 0xFFFFFFFF, is this correct? If you see this message for many files, there might be an error.", UrgencyLevel.Warning).ToString());
+                //log.AppendLine(new WarningString("Transparency is not 0xFFFFFFFF, is this correct? If you see this message for many files, there might be an error.", UrgencyLevel.Warning).ToString());
             }
         }
 

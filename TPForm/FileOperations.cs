@@ -24,6 +24,11 @@ namespace TPMeshEditor
         private static string inputDirectory;
 
         /// <summary>
+        /// Input directory; accessed through property.
+        /// </summary>
+        private static string outputDirectory;
+
+        /// <summary>
         /// Initialises the class with all the information the programme needs.
         /// </summary>
         static FileOperations()
@@ -32,6 +37,7 @@ namespace TPMeshEditor
             Files = new List<string>();
 
             inputDirectory = Directory.GetCurrentDirectory() + "/INPUT";
+            outputDirectory = Directory.GetCurrentDirectory() + "/OUTPUT";
 
             if (!Directory.Exists(inputDirectory))
             {
@@ -63,6 +69,18 @@ namespace TPMeshEditor
                 inputDirectory = value;
                 Files.Clear();
                 FillFileList();
+            }
+        }
+
+        /// <summary>
+        /// Current output directory.
+        /// </summary>
+        public static string OutputDirectory
+        {
+            get { return outputDirectory; }
+            set
+            {
+                outputDirectory = value;
             }
         }
 

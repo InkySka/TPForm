@@ -9,7 +9,7 @@ namespace TPMeshEditor
 {
     public class TPMesh : ILoggable
     {
-        TPMesh(string _filename)
+        public TPMesh(string _filename)
         {
             log = new StringBuilder();
             models = new List<TPModel>();
@@ -81,13 +81,13 @@ namespace TPMeshEditor
                     for (uint i = 0; i < ModelCount; ++i)
                     {
                         uint tempsize = ((Data4Bytes)(reader.ReadBytes(4))).ui;
-
                         TPModel temp;
 
                         //Size + 4 because we also want to supply the model size.
                         List<byte> tempList = new List<byte>((int)tempsize + 4);
 
-                        tempList = reader.ReadBytes((int)tempsize + 4).ToList();
+                        tempList.InsertRange(0, ((Data4Bytes)tempsize).B);
+                        tempList.InsertRange(4,reader.ReadBytes((int)tempsize).ToList());
 
                         temp = new TPModel(tempList);
                         models.Add(temp);
@@ -97,7 +97,7 @@ namespace TPMeshEditor
                         }
 
                         currentPositionInData += tempsize + 4;
-                        remainingDataSize -= (currentPositionInData - 4);
+                        remainingDataSize -= (tempsize - 4);
                     }
                     otherData.Capacity = (int)remainingDataSize;
                     otherData = reader.ReadBytes((int)remainingDataSize).ToList();

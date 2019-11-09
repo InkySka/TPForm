@@ -222,7 +222,7 @@ namespace TPMeshEditor
                         break;
                     }
             }
-            output.Concat(message);
+            output +=(message);
             return output;
         }
     }

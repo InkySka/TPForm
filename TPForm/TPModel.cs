@@ -17,9 +17,9 @@ namespace TPMeshEditor
         /// </param>
         public TPModel(List<byte> _rawdata)
         {
-            if (_rawdata.Count() < 1 || _rawdata.Count() < ((Data4Bytes)(_rawdata.GetRange(0, 4))).ui + 1)
+            if (_rawdata.Count() < 1 || _rawdata.Count() < ((Data4Bytes)(_rawdata.GetRange(0, 4))).ui + 4)
             {
-                throw new ArgumentException("Incorrect initialisation array size.");
+                throw new ArgumentException("Incorrect initialisation array size: " + _rawdata.Count + ", expected: " + ((Data4Bytes)(_rawdata.GetRange(0, 4))).ui + 1);
             }
 
             log = new StringBuilder();
@@ -96,9 +96,9 @@ namespace TPMeshEditor
 
                 /* We get a number of bytes that is the size + 4, because we also supply the size to the vertex object. 
                  */
-                temp = new TPVertex(_rawdata.GetRange((int)currentPositionInData, (int)(currentPositionInData + tempsize + 4)));
+                temp = new TPVertex(_rawdata.GetRange((int)currentPositionInData, (int)(tempsize + 4)));
                 vertices.Add(temp);
-                if (temp.PeekLog() != null)
+                if (temp.PeekLog() != "")
                 {
                     log.AppendLine("Vertex " + i + ": " + temp.DumpLog());
                 }
@@ -117,9 +117,9 @@ namespace TPMeshEditor
                 TPFace temp;
 
                 //adds face data to temp face, remembering that we are dealing with 4-byte data and the size counter counts single bytes
-                temp = new TPFace(_rawdata.GetRange((int)currentPositionInData, (int)(currentPositionInData + tempsize + 4)));
+                temp = new TPFace(_rawdata.GetRange((int)currentPositionInData, (int)(tempsize + 4)));
                 faces.Add(temp);
-                if (temp.PeekLog() != null)
+                if (temp.PeekLog() != "")
                 {
                     log.AppendLine("Face " + i + ": " + temp.DumpLog());
                 }
@@ -137,7 +137,7 @@ namespace TPMeshEditor
 
                 TPAnimFrame temp;
 
-                temp = new TPAnimFrame(_rawdata.GetRange((int)currentPositionInData, (int)(currentPositionInData + tempsize + 4)));
+                temp = new TPAnimFrame(_rawdata.GetRange((int)currentPositionInData, (int)(tempsize + 4)));
                 animationFrames.Add(temp);
                 if (temp.PeekLog() != null)
                 {
