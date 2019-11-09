@@ -86,6 +86,11 @@
             <remarks>Only for internal use; should only read from - and write to - internal variables.
             Used during initialisation to fill the file list.</remarks>
         </member>
+        <member name="T:TPMeshEditor.ITransformable">
+            <summary>
+            Interface for classes which can accept a transformation matrix.
+            </summary>
+        </member>
         <member name="T:TPMeshEditor.ILoggable">
             <summary>
             Interface that defines functions to read logs.
@@ -311,6 +316,23 @@
             </summary>
             <returns>Log as String.</returns>
             <remarks>This function should be preferred to PeekLog.</remarks>
+        </member>
+        <member name="F:TPMeshEditor.TransformDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.TransformDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TPMeshEditor.TransformDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
         <member name="T:TPMeshEditor.Properties.Resources">
             <summary>

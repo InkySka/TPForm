@@ -9,7 +9,7 @@ namespace TPMeshEditor
     /// <summary>
     /// Defines a vertex.
     /// </summary>
-    public class TPVertex : ILoggable, IByteArrayCapable
+    public class TPVertex : ILoggable, IByteArrayCapable, ITransformable
     {
         /// <summary>
         /// Initialises the vertex from a raw data array.
@@ -128,6 +128,17 @@ namespace TPMeshEditor
         {
             log.AppendLine(new WarningString("Initialised " + _ukn_res.Count + " bytes more than expected.", UrgencyLevel.Warning).ToString());
             Unknown_Reserved = _ukn_res;
+        }
+
+        public void Transform(float[,] _matrix)
+        {
+            float newX = _matrix[0,0] * X + _matrix[0,1] * Y + _matrix[0,2] * Z + _matrix[0,3];
+            float newY = _matrix[1,0] * X + _matrix[1,1] * Y + _matrix[1,2] * Z + _matrix[1,3];
+            float newZ = _matrix[2,0] * X + _matrix[2,1] * Y + _matrix[2,2] * Z + _matrix[2,3];
+
+            X = newX;
+            Y = newY;
+            Z = newZ;
         }
 
         /// <summary>

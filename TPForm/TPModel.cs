@@ -176,6 +176,14 @@ namespace TPMeshEditor
             return output;
         }
 
+        public void Transform(float[,] _matrix)
+        {
+            foreach(TPVertex v in vertices)
+            {
+                v.Transform(_matrix);
+            }
+        }
+
         public string PeekLog()
         {
             return log.ToString();

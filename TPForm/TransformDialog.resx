@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="XMove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="XMove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="XMove.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;XMove.Name" xml:space="preserve">
+    <value>XMove</value>
+  </data>
+  <data name="&gt;&gt;XMove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XMove.Parent" xml:space="preserve">
+    <value>GB_Move</value>
+  </data>
+  <data name="&gt;&gt;XMove.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ZMove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 74</value>
+  </data>
+  <data name="ZMove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="ZMove.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ZMove.Name" xml:space="preserve">
+    <value>ZMove</value>
+  </data>
+  <data name="&gt;&gt;ZMove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ZMove.Parent" xml:space="preserve">
+    <value>GB_Move</value>
+  </data>
+  <data name="&gt;&gt;ZMove.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="YMove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 48</value>
+  </data>
+  <data name="YMove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="YMove.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;YMove.Name" xml:space="preserve">
+    <value>YMove</value>
+  </data>
+  <data name="&gt;&gt;YMove.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;YMove.Parent" xml:space="preserve">
+    <value>GB_Move</value>
+  </data>
+  <data name="&gt;&gt;YMove.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="F_X.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 21</value>
+  </data>
+  <data name="F_X.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="F_X.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="F_X.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="&gt;&gt;F_X.Name" xml:space="preserve">
+    <value>F_X</value>
+  </data>
+  <data name="&gt;&gt;F_X.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_X.Parent" xml:space="preserve">
+    <value>GB_Move</value>
+  </data>
+  <data name="&gt;&gt;F_X.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 48</value>
+  </data>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>GB_Move</value>
+  </data>
+  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 74</value>
+  </data>
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
+    <value>textBox2</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
+    <value>GB_Move</value>
+  </data>
+  <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GB_Move.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="GB_Move.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 100</value>
+  </data>
+  <data name="GB_Move.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="GB_Move.Text" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="&gt;&gt;GB_Move.Name" xml:space="preserve">
+    <value>GB_Move</value>
+  </data>
+  <data name="&gt;&gt;GB_Move.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GB_Move.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GB_Move.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;ZRot.Name" xml:space="preserve">
+    <value>ZRot</value>
+  </data>
+  <data name="&gt;&gt;ZRot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ZRot.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;ZRot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.Name" xml:space="preserve">
+    <value>F_Z2</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;XRot.Name" xml:space="preserve">
+    <value>XRot</value>
+  </data>
+  <data name="&gt;&gt;XRot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XRot.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;XRot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.Name" xml:space="preserve">
+    <value>F_Y2</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;YRot.Name" xml:space="preserve">
+    <value>YRot</value>
+  </data>
+  <data name="&gt;&gt;YRot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;YRot.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;YRot.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;F_X2.Name" xml:space="preserve">
+    <value>F_X2</value>
+  </data>
+  <data name="&gt;&gt;F_X2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_X2.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;F_X2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="GB_Rotate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 118</value>
+  </data>
+  <data name="GB_Rotate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 100</value>
+  </data>
+  <data name="GB_Rotate.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="GB_Rotate.Text" xml:space="preserve">
+    <value>Rotate (DEG)</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.Name" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ZRot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 74</value>
+  </data>
+  <data name="ZRot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="ZRot.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ZRot.Name" xml:space="preserve">
+    <value>ZRot</value>
+  </data>
+  <data name="&gt;&gt;ZRot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ZRot.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;ZRot.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="F_Z2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 74</value>
+  </data>
+  <data name="F_Z2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="F_Z2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="F_Z2.Text" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.Name" xml:space="preserve">
+    <value>F_Z2</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;F_Z2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="XRot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="XRot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="XRot.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;XRot.Name" xml:space="preserve">
+    <value>XRot</value>
+  </data>
+  <data name="&gt;&gt;XRot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XRot.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;XRot.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="F_Y2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 48</value>
+  </data>
+  <data name="F_Y2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="F_Y2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="F_Y2.Text" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.Name" xml:space="preserve">
+    <value>F_Y2</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;F_Y2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="YRot.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 48</value>
+  </data>
+  <data name="YRot.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="YRot.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;YRot.Name" xml:space="preserve">
+    <value>YRot</value>
+  </data>
+  <data name="&gt;&gt;YRot.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;YRot.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;YRot.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="F_X2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 21</value>
+  </data>
+  <data name="F_X2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="F_X2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="F_X2.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="&gt;&gt;F_X2.Name" xml:space="preserve">
+    <value>F_X2</value>
+  </data>
+  <data name="&gt;&gt;F_X2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_X2.Parent" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;F_X2.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ZScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 74</value>
+  </data>
+  <data name="ZScale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="ZScale.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ZScale.Name" xml:space="preserve">
+    <value>ZScale</value>
+  </data>
+  <data name="&gt;&gt;ZScale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ZScale.Parent" xml:space="preserve">
+    <value>GB_Scale</value>
+  </data>
+  <data name="&gt;&gt;ZScale.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="F_Z3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 74</value>
+  </data>
+  <data name="F_Z3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="F_Z3.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="F_Z3.Text" xml:space="preserve">
+    <value>Z</value>
+  </data>
+  <data name="&gt;&gt;F_Z3.Name" xml:space="preserve">
+    <value>F_Z3</value>
+  </data>
+  <data name="&gt;&gt;F_Z3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_Z3.Parent" xml:space="preserve">
+    <value>GB_Scale</value>
+  </data>
+  <data name="&gt;&gt;F_Z3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="XScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 22</value>
+  </data>
+  <data name="XScale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="XScale.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;XScale.Name" xml:space="preserve">
+    <value>XScale</value>
+  </data>
+  <data name="&gt;&gt;XScale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;XScale.Parent" xml:space="preserve">
+    <value>GB_Scale</value>
+  </data>
+  <data name="&gt;&gt;XScale.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="F_Y3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 48</value>
+  </data>
+  <data name="F_Y3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="F_Y3.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="F_Y3.Text" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="&gt;&gt;F_Y3.Name" xml:space="preserve">
+    <value>F_Y3</value>
+  </data>
+  <data name="&gt;&gt;F_Y3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_Y3.Parent" xml:space="preserve">
+    <value>GB_Scale</value>
+  </data>
+  <data name="&gt;&gt;F_Y3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="YScale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 48</value>
+  </data>
+  <data name="YScale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 20</value>
+  </data>
+  <data name="YScale.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;YScale.Name" xml:space="preserve">
+    <value>YScale</value>
+  </data>
+  <data name="&gt;&gt;YScale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;YScale.Parent" xml:space="preserve">
+    <value>GB_Scale</value>
+  </data>
+  <data name="&gt;&gt;YScale.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="F_X3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 21</value>
+  </data>
+  <data name="F_X3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 20</value>
+  </data>
+  <data name="F_X3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="F_X3.Text" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="&gt;&gt;F_X3.Name" xml:space="preserve">
+    <value>F_X3</value>
+  </data>
+  <data name="&gt;&gt;F_X3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;F_X3.Parent" xml:space="preserve">
+    <value>GB_Scale</value>
+  </data>
+  <data name="&gt;&gt;F_X3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="GB_Scale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 224</value>
+  </data>
+  <data name="GB_Scale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 100</value>
+  </data>
+  <data name="GB_Scale.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="GB_Scale.Text" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="&gt;&gt;GB_Scale.Name" xml:space="preserve">
+    <value>GB_Scale</value>
+  </data>
+  <data name="&gt;&gt;GB_Scale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GB_Scale.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GB_Scale.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="FilesInFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 21</value>
+  </data>
+  <data name="FilesInFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>406, 20</value>
+  </data>
+  <data name="FilesInFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="FilesInFolder.Text" xml:space="preserve">
+    <value>Loaded meshes</value>
+  </data>
+  <data name="&gt;&gt;FilesInFolder.Name" xml:space="preserve">
+    <value>FilesInFolder</value>
+  </data>
+  <data name="&gt;&gt;FilesInFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FilesInFolder.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;FilesInFolder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LoadedMeshesList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 48</value>
+  </data>
+  <data name="LoadedMeshesList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>405, 244</value>
+  </data>
+  <data name="LoadedMeshesList.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;LoadedMeshesList.Name" xml:space="preserve">
+    <value>LoadedMeshesList</value>
+  </data>
+  <data name="&gt;&gt;LoadedMeshesList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LoadedMeshesList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LoadedMeshesList.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="buttonApplyTransformations.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 295</value>
+  </data>
+  <data name="buttonApplyTransformations.Size" type="System.Drawing.Size, System.Drawing">
+    <value>405, 23</value>
+  </data>
+  <data name="buttonApplyTransformations.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="buttonApplyTransformations.Text" xml:space="preserve">
+    <value>Apply transformations</value>
+  </data>
+  <data name="&gt;&gt;buttonApplyTransformations.Name" xml:space="preserve">
+    <value>buttonApplyTransformations</value>
+  </data>
+  <data name="&gt;&gt;buttonApplyTransformations.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonApplyTransformations.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonApplyTransformations.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>564, 329</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>TransformDialog</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>TransformDialog</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

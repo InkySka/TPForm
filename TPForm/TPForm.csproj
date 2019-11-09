@@ -64,6 +64,12 @@
     <Compile Include="TPEntity.cs" />
     <Compile Include="TPMesh.cs" />
     <Compile Include="TPVertex.cs" />
+    <Compile Include="TransformDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransformDialog.Designer.cs">
+      <DependentUpon>TransformDialog.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="TransformDialog.resx">
+      <DependentUpon>TransformDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

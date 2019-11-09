@@ -120,13 +120,8 @@ namespace TPMeshEditor
                 WriteLog(temp.PeekLog());
             }
 
-            WriteLog("MESHES NOW IN MESH LIST: " + Global.meshes.Count);
-
-            foreach (TPMesh m in Global.meshes)
-            {
-                m.Export();
-                WriteLog("Exported " + m.OutputFilename);
-            }
+            TransformDialog transformForm = new TransformDialog();
+            transformForm.Show();
         }
     }
 }

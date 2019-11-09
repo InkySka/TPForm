@@ -7,7 +7,7 @@ using System.IO;
 
 namespace TPMeshEditor
 {
-    public class TPMesh : ILoggable
+    public class TPMesh : ILoggable, ITransformable
     {
         public TPMesh(string _filename)
         {
@@ -20,7 +20,7 @@ namespace TPMeshEditor
             FileInfo temp = new FileInfo(_filename);
 
             // ...output_directory/TPF_filename.mdb
-            OutputFilename = FileOperations.OutputDirectory + "/" + "TPF_" + temp.Name;
+            OutputFilename = FileOperations.OutputDirectory + "/" + temp.Name;
 
             TotalFileSize = (new FileInfo(_filename).Length);
 
@@ -139,6 +139,18 @@ namespace TPMeshEditor
             }
         }
 
+        public void Transform(float[,] _matrix)
+        {
+            if(_matrix.Rank != 2)
+            {
+                throw new ArgumentException("Transformation matrix must be two-dimensional.");
+            }
+            foreach (TPModel m in models)
+            {
+                m.Transform(_matrix);
+            }
+        }
+
         /// <summary>
         /// Returns the log without deleting it.
         /// </summary>
@@ -161,6 +173,11 @@ namespace TPMeshEditor
             log.Clear();
 
             return output;
+        }
+
+        public static implicit operator string(TPMesh m)
+        {
+            return m.Filename;
         }
     }
 }
