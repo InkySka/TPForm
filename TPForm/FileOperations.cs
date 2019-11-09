@@ -78,10 +78,7 @@ namespace TPMeshEditor
         /// <remarks>Prefer DumpLog instead.</remarks>
         public static string PeekLog()
         {
-            string output;
-            output = log.ToString();
-
-            return output;
+            return log.ToString();
         }
 
         /// <summary>

@@ -76,6 +76,62 @@
             <remarks>Only for internal use; should only read from - and write to - internal variables.
             Used during initialisation to fill the file list.</remarks>
         </member>
+        <member name="T:TPMeshEditor.ILoggable">
+            <summary>
+            Interface that defines functions to read logs.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.ILoggable.PeekLog">
+            <summary>
+            Returns the log without deleting it.
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>Prefer DumpLog instead.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.ILoggable.DumpLog">
+            <summary>
+            Returns the log and deletes it (like flushing a stream).
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>This function should be preferred to PeekLog.</remarks>
+        </member>
+        <member name="T:TPMeshEditor.ISettable">
+            <summary>
+            Interface for classes that can be initialised and set with an array of bytes.
+            </summary>
+        </member>
+        <member name="T:TPMeshEditor.Data4Bytes">
+            <summary>
+            Represents 4 bytes of data, like a C/C++ union.
+            </summary>
+            <remarks>
+            Properties are used to access byte and short arrays to avoid size mismatch.
+            </remarks>
+        </member>
+        <member name="M:TPMeshEditor.Data4Bytes.GenerateFromByteArray(System.Byte[])">
+            <summary>
+            Generates a <see cref="T:TPMeshEditor.Data4Bytes"/> List from a byte array.
+            </summary>
+            <param name="_bl">Byte array</param>
+            <returns>List of <see cref="T:TPMeshEditor.Data4Bytes"/></returns>
+        </member>
+        <member name="M:TPMeshEditor.Data4Bytes.GenerateFromByteArray(System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Generates a <see cref="T:TPMeshEditor.Data4Bytes"/> List from a byte List.
+            </summary>
+            <param name="_bl">Byte List</param>
+            <returns>List of <see cref="T:TPMeshEditor.Data4Bytes"/></returns>
+        </member>
+        <member name="T:TPMeshEditor.UrgencyLevel">
+            <summary>
+            Used in <see cref="T:TPMeshEditor.WarningString"/> to handle different urgency levels.
+            </summary>
+        </member>
+        <member name="T:TPMeshEditor.WarningString">
+            <summary>
+            Uses <see cref="T:TPMeshEditor.UrgencyLevel"/> and a string to differentiate between a normal log message and warning/errors.
+            </summary>
+        </member>
         <member name="M:TPMeshEditor.WarningString.#ctor(System.String,TPMeshEditor.UrgencyLevel)">
             <summary>
             Represent a debug message.
@@ -107,15 +163,53 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="T:TPMeshEditor.Data4Bytes">
+        <member name="F:TPMeshEditor.TPAnimFrame.DefaultSize">
             <summary>
-            Represents 4 bytes of data, like a C/C++ union.
+            Default size, INCLUDING size counter.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.TPAnimFrame.PeekLog">
+            <summary>
+            Returns the log without deleting it.
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>Prefer DumpLog instead.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.TPAnimFrame.DumpLog">
+            <summary>
+            Returns the log and deletes it (like flushing a stream).
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>This function should be preferred to PeekLog.</remarks>
+        </member>
+        <member name="F:TPMeshEditor.TPFace.DefaultSize">
+            <summary>
+            Default size, INCLUDING size counter, in BYTES.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.TPFace.PeekLog">
+            <summary>
+            Returns the log without deleting it.
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>Prefer DumpLog instead.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.TPFace.DumpLog">
+            <summary>
+            Returns the log and deletes it (like flushing a stream).
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>This function should be preferred to PeekLog.</remarks>
+        </member>
+        <member name="P:TPMeshEditor.TPFace.Unknown_Reserved">
+            <summary>
+            Allows for future implementations of arbitrary sizes; should never be used during normal operations.
             </summary>
             <remarks>
-            Properties are used to access byte and short arrays to avoid size mismatch.
+            The class issues a warning when this is filled on initialisation.
             </remarks>
         </member>
-        <member name="M:TPMeshEditor.TPMesh.TPModel.#ctor(System.Collections.Generic.List{TPMeshEditor.Data4Bytes})">
+        <member name="M:TPMeshEditor.TPModel.#ctor(System.Collections.Generic.List{System.Byte})">
             <summary>
             Main constructor.
             </summary>
@@ -123,18 +217,65 @@
             Supply data from ModelSize to the last animation frame byte.
             </param>
         </member>
-        <member name="F:TPMeshEditor.TPMesh.TPVertex.DefaultSize">
+        <member name="M:TPMeshEditor.Program.Main">
             <summary>
-            Default size, INCLUDING size counter.
+            The main entry point for the application.
             </summary>
         </member>
-        <member name="M:TPMeshEditor.TPMesh.TPVertex.#ctor(System.Collections.Generic.List{TPMeshEditor.Data4Bytes})">
+        <member name="M:TPMeshEditor.TPEntity.PeekLog">
+            <summary>
+            Returns the log without deleting it.
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>Prefer DumpLog instead.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.TPEntity.DumpLog">
+            <summary>
+            Returns the log and deletes it (like flushing a stream).
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>This function should be preferred to PeekLog.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.TPMesh.Import">
+            <summary>
+            Import from <see cref="P:TPMeshEditor.TPMesh.Filename"/>.
+            </summary>
+            <remarks>
+            It doesn't really make sense to allow re-initialisation.
+            Hence, this function is called only upon initialisation.
+            </remarks>
+        </member>
+        <member name="M:TPMeshEditor.TPMesh.PeekLog">
+            <summary>
+            Returns the log without deleting it.
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>Prefer DumpLog instead.</remarks>
+        </member>
+        <member name="M:TPMeshEditor.TPMesh.DumpLog">
+            <summary>
+            Returns the log and deletes it (like flushing a stream).
+            </summary>
+            <returns>Log as String.</returns>
+            <remarks>This function should be preferred to PeekLog.</remarks>
+        </member>
+        <member name="T:TPMeshEditor.TPVertex">
+            <summary>
+            Defines a vertex.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.TPVertex.#ctor(System.Collections.Generic.List{System.Byte})">
             <summary>
             Initialises the vertex from a raw data array.
             </summary>
             <param name="_rawdata"></param>
         </member>
-        <member name="P:TPMeshEditor.TPMesh.TPVertex.Unknown_Reserved">
+        <member name="F:TPMeshEditor.TPVertex.DefaultSize">
+            <summary>
+            Default size, INCLUDING size counter, in BYTES.
+            </summary>
+        </member>
+        <member name="P:TPMeshEditor.TPVertex.Unknown_Reserved">
             <summary>
             Allows for future implementations of arbitrary sizes; should never be used during normal operations.
             </summary>
@@ -142,23 +283,24 @@
             The class issues a warning when this is filled on initialisation.
             </remarks>
         </member>
-        <member name="F:TPMeshEditor.TPMesh.TPFace.DefaultSize">
+        <member name="M:TPMeshEditor.TPVertex.IndividualSet(System.UInt32,System.Single,System.Single,System.Single,System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32)">
             <summary>
-            Default size, INCLUDING size counter.
+            Used to initialise parameters individually.
             </summary>
         </member>
-        <member name="P:TPMeshEditor.TPMesh.TPFace.Unknown_Reserved">
+        <member name="M:TPMeshEditor.TPVertex.PeekLog">
             <summary>
-            Allows for future implementations of arbitrary sizes; should never be used during normal operations.
+            Returns the log without deleting it.
             </summary>
-            <remarks>
-            The class issues a warning when this is filled on initialisation.
-            </remarks>
+            <returns>Log as String.</returns>
+            <remarks>Prefer DumpLog instead.</remarks>
         </member>
-        <member name="M:TPMeshEditor.Program.Main">
+        <member name="M:TPMeshEditor.TPVertex.DumpLog">
             <summary>
-            The main entry point for the application.
+            Returns the log and deletes it (like flushing a stream).
             </summary>
+            <returns>Log as String.</returns>
+            <remarks>This function should be preferred to PeekLog.</remarks>
         </member>
         <member name="T:TPMeshEditor.Properties.Resources">
             <summary>

@@ -3,19 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace TPMeshEditor
 {
-    class TPEntity : ILoggable
+    public class TPAnimFrame : ILoggable, ISettable
     {
-        TPEntity(string _filename)
+        private StringBuilder log;
+
+        /// <summary>
+        /// Default size, INCLUDING size counter.
+        /// </summary>
+        private static readonly uint DefaultSize = 0;
+
+        public TPAnimFrame(List<byte> _rawdata)
+        {
+            Unknown = new List<byte>();
+            log = new StringBuilder();
+
+            Set(_rawdata);
+        }
+
+        public void Set(List<byte> _rawdata)
+        {
+            if (_rawdata.Count > 0)
+            {
+                Size = ((Data4Bytes)_rawdata.GetRange(0, 4)).ui;
+                Unknown = _rawdata.Skip(4).ToList();
+            }
+        }
+
+        public void SetAdditionalData(List<Data4Bytes> _ukn_res)
         {
 
         }
-
-        private List<TPMesh> meshes;
-        private StringBuilder log;
 
         /// <summary>
         /// Returns the log without deleting it.
@@ -40,5 +60,9 @@ namespace TPMeshEditor
 
             return output;
         }
+
+        public List<byte> Unknown;
+
+        public uint Size { get; private set; }
     }
 }
