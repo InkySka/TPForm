@@ -17,6 +17,11 @@ namespace TPMeshEditor
             otherData = new List<byte>();
 
             Filename = _filename;
+            FileInfo temp = new FileInfo(_filename);
+
+            // ...output_directory/TPF_filename.mdb
+            OutputFilename = FileOperations.OutputDirectory + "/" + "TPF_" + temp.Name;
+
             TotalFileSize = (new FileInfo(_filename).Length);
 
             Import();
@@ -29,6 +34,7 @@ namespace TPMeshEditor
         private List<byte> otherData;
 
         public string Filename { get; private set; }
+        public string OutputFilename { get; private set; }
 
         public long TotalFileSize { get; }
         public uint Size
@@ -87,7 +93,7 @@ namespace TPMeshEditor
                         List<byte> tempList = new List<byte>((int)tempsize + 4);
 
                         tempList.InsertRange(0, ((Data4Bytes)tempsize).B);
-                        tempList.InsertRange(4,reader.ReadBytes((int)tempsize).ToList());
+                        tempList.InsertRange(4, reader.ReadBytes((int)tempsize).ToList());
 
                         temp = new TPModel(tempList);
                         models.Add(temp);
@@ -101,6 +107,34 @@ namespace TPMeshEditor
                     }
                     otherData.Capacity = (int)remainingDataSize;
                     otherData = reader.ReadBytes((int)remainingDataSize).ToList();
+                }
+            }
+        }
+
+        public void Export()
+        {
+            List<byte> output = new List<byte>((int)Size + 4);
+
+            foreach (Data4Bytes d in header)
+            {
+                output.AddRange(d.B);
+            }
+
+            foreach (TPModel m in models)
+            {
+                output.AddRange(m.Get());
+            }
+
+            output.AddRange(otherData);
+
+            using (FileStream fs = new FileStream(OutputFilename, FileMode.Create))
+            {
+                using (BinaryWriter writer = new BinaryWriter(fs))
+                {
+                    foreach(byte b in output)
+                    {
+                        writer.Write(b);
+                    }
                 }
             }
         }

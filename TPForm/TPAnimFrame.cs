@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TPMeshEditor
 {
-    public class TPAnimFrame : ILoggable, ISettable
+    public class TPAnimFrame : ILoggable, IByteArrayCapable
     {
         private StringBuilder log;
 
@@ -35,6 +35,17 @@ namespace TPMeshEditor
         public void SetAdditionalData(List<Data4Bytes> _ukn_res)
         {
 
+        }
+
+        public List<byte> Get()
+        {
+            List<byte> output = new List<byte>((int)Size + 4);
+
+            output.AddRange(((Data4Bytes)Size).B);
+
+            output.AddRange(Unknown);
+
+            return output;
         }
 
         /// <summary>

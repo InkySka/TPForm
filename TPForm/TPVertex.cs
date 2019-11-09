@@ -9,7 +9,7 @@ namespace TPMeshEditor
     /// <summary>
     /// Defines a vertex.
     /// </summary>
-    public class TPVertex : ILoggable, ISettable
+    public class TPVertex : ILoggable, IByteArrayCapable
     {
         /// <summary>
         /// Initialises the vertex from a raw data array.
@@ -104,6 +104,24 @@ namespace TPMeshEditor
             {
                 //log.AppendLine(new WarningString("Transparency is not 0xFFFFFFFF, is this correct? If you see this message for many files, there might be an error.", UrgencyLevel.Warning).ToString());
             }
+        }
+
+        public List<byte> Get()
+        {
+            List<byte> output = new List<byte>((int)Size + 4 + Unknown_Reserved.Count);
+
+            output.AddRange(((Data4Bytes)Size).B);
+            output.AddRange(((Data4Bytes)X).B);
+            output.AddRange(((Data4Bytes)Y).B);
+            output.AddRange(((Data4Bytes)Z).B);
+            output.AddRange(((Data4Bytes)Vt_u).B);
+            output.AddRange(((Data4Bytes)Vt_v).B);
+            output.AddRange(((Data4Bytes)Unknown1).B);
+            output.AddRange(((Data4Bytes)Unknown2).B);
+            output.AddRange(((Data4Bytes)Transparency).B);
+            output.AddRange(Unknown_Reserved);
+
+            return output;
         }
 
         public void SetAdditionalData(List<byte> _ukn_res)

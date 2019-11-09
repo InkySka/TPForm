@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TPMeshEditor
 {
-    public class TPFace : ILoggable, ISettable
+    public class TPFace : ILoggable, IByteArrayCapable
     {
         private StringBuilder log;
 
@@ -70,6 +70,20 @@ namespace TPMeshEditor
         {
             log.AppendLine(new WarningString("Initialised " + _ukn_res.Count + " bytes more than expected.", UrgencyLevel.Warning).ToString());
             Unknown_Reserved = _ukn_res;
+        }
+
+        public List<byte> Get()
+        {
+            List<byte> output = new List<byte>((int)Size + 4 + Unknown_Reserved.Count);
+
+            short[] t1 = { V1, V2 };
+            short[] t2 = { V3, MId };
+            output.AddRange(((Data4Bytes)Size).B);
+            output.AddRange(((Data4Bytes)t1).B);
+            output.AddRange(((Data4Bytes)t2).B);
+            output.AddRange(Unknown_Reserved);
+
+            return output;
         }
 
         /// <summary>

@@ -47,6 +47,15 @@ namespace TPMeshEditor
             else
                 log.AppendLine("Found input directory: " + inputDirectory);
 
+
+            if (!Directory.Exists(outputDirectory))
+            {
+                Directory.CreateDirectory(outputDirectory);
+                log.AppendLine("Created output directory: " + outputDirectory);
+            }
+            else
+                log.AppendLine("Found output directory: " + outputDirectory);
+
             FillFileList();
         }
         /// <summary>

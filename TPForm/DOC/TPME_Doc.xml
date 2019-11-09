@@ -23,6 +23,11 @@
             Input directory; accessed through property.
             </summary>
         </member>
+        <member name="F:TPMeshEditor.FileOperations.outputDirectory">
+            <summary>
+            Input directory; accessed through property.
+            </summary>
+        </member>
         <member name="M:TPMeshEditor.FileOperations.#cctor">
             <summary>
             Initialises the class with all the information the programme needs.
@@ -40,6 +45,11 @@
         <member name="P:TPMeshEditor.FileOperations.InputDirectory">
             <summary>
             Current input directory.
+            </summary>
+        </member>
+        <member name="P:TPMeshEditor.FileOperations.OutputDirectory">
+            <summary>
+            Current output directory.
             </summary>
         </member>
         <member name="P:TPMeshEditor.FileOperations.Files">
@@ -95,7 +105,7 @@
             <returns>Log as String.</returns>
             <remarks>This function should be preferred to PeekLog.</remarks>
         </member>
-        <member name="T:TPMeshEditor.ISettable">
+        <member name="T:TPMeshEditor.IByteArrayCapable">
             <summary>
             Interface for classes that can be initialised and set with an array of bytes.
             </summary>

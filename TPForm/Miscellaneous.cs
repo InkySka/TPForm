@@ -30,9 +30,10 @@ namespace TPMeshEditor
     /// <summary>
     /// Interface for classes that can be initialised and set with an array of bytes.
     /// </summary>
-    interface ISettable
+    interface IByteArrayCapable
     {
         void Set(List<byte> _rawdata);
+        List<byte> Get();
     }
 
     /// <summary>
@@ -222,7 +223,7 @@ namespace TPMeshEditor
                         break;
                     }
             }
-            output +=(message);
+            output += (message);
             return output;
         }
     }

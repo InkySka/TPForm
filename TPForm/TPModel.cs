@@ -7,7 +7,7 @@ using System.IO;
 
 namespace TPMeshEditor
 {
-    public class TPModel : ILoggable, ISettable
+    public class TPModel : ILoggable, IByteArrayCapable
     {
         /// <summary>
         /// Main constructor.
@@ -146,6 +146,34 @@ namespace TPMeshEditor
 
                 currentPositionInData += tempsize + 4;
             }
+        }
+
+        public List<byte> Get()
+        {
+            List<byte> output = new List<byte>((int)Size + 4);
+
+            output.AddRange(((Data4Bytes)Size).B);
+            output.AddRange(((Data4Bytes)ID).B);
+
+            output.AddRange(((Data4Bytes)VertexCount).B);
+            foreach (TPVertex v in vertices)
+            {
+                output.AddRange(v.Get());
+            }
+
+            output.AddRange(((Data4Bytes)FaceCount).B);
+            foreach (TPFace f in faces)
+            {
+                output.AddRange(f.Get());
+            }
+
+            output.AddRange(((Data4Bytes)AnimationFrameCount).B);
+            foreach (TPAnimFrame a in animationFrames)
+            {
+                output.AddRange(a.Get());
+            }
+
+            return output;
         }
 
         public string PeekLog()

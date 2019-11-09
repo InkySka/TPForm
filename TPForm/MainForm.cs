@@ -110,14 +110,22 @@ namespace TPMeshEditor
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
+            Global.meshes.Clear();
             //List<string> filesToConvert = fileList.CheckedItems.;
             foreach (ListViewItem s in fileList.CheckedItems)
             {
-                WriteLog(FileOperations.InputDirectory + "/" + s.Text);
-                Global.meshes.Clear();
-                TPMesh temp = new TPMesh(FileOperations.InputDirectory +"/"+ s.Text);
+                WriteLog(FileOperations.InputDirectory + "/" + s.Text); 
+                TPMesh temp = new TPMesh(FileOperations.InputDirectory + "/" + s.Text);
                 Global.meshes.Add(temp);
                 WriteLog(temp.PeekLog());
+            }
+
+            WriteLog("MESHES NOW IN MESH LIST: " + Global.meshes.Count);
+
+            foreach (TPMesh m in Global.meshes)
+            {
+                m.Export();
+                WriteLog("Exported " + m.OutputFilename);
             }
         }
     }
