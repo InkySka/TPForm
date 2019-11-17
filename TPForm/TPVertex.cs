@@ -108,7 +108,7 @@ namespace TPMeshEditor
 
         public List<byte> Get()
         {
-            List<byte> output = new List<byte>((int)Size + 4 + Unknown_Reserved.Count);
+            List<byte> output = new List<byte>((int)Size + 4);
 
             output.AddRange(((Data4Bytes)Size).B);
             output.AddRange(((Data4Bytes)X).B);

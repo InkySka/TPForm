@@ -15,6 +15,7 @@ namespace TPMeshEditor
             models = new List<TPModel>();
             header = new List<Data4Bytes>();
             otherData = new List<byte>();
+            materials = new List<TPMaterial>();
 
             Filename = _filename;
             FileInfo temp = new FileInfo(_filename);
@@ -22,7 +23,7 @@ namespace TPMeshEditor
             // ...output_directory/TPF_filename.mdb
             OutputFilename = FileOperations.OutputDirectory + "/" + temp.Name;
 
-            TotalFileSize = (new FileInfo(_filename).Length);
+            OriginalFileSize = (new FileInfo(_filename).Length);
 
             Import();
         }
@@ -31,20 +32,28 @@ namespace TPMeshEditor
         private StringBuilder log;
         private List<TPModel> models;
         private List<Data4Bytes> header;
+        List<TPMaterial> materials;
         private List<byte> otherData;
 
         public string Filename { get; private set; }
         public string OutputFilename { get; private set; }
 
-        public long TotalFileSize { get; }
+        public long OriginalFileSize { get; }
         public uint Size
         {
             get { return header[0].ui; }
+            private set 
+            {
+                this.header[0] = value;
+                this.header[2] = value - 12;
+            }
         }
         public uint ModelCount
         {
             get { return header[3].ui; }
+            private set { header[3] = value; }
         }
+        public uint MaterialCount { get; private set; }
 
         /// <summary>
         /// Import from <see cref="Filename"/>.
@@ -69,7 +78,7 @@ namespace TPMeshEditor
 
                     header = tempHeader;
 
-                    uint remainingDataSize = (uint)TotalFileSize; // Will be decreased later.
+                    uint remainingDataSize = (uint)OriginalFileSize; // Will be decreased later.
 
                     /*
                      * Currently at 16 bytes = 4 words, next thing to read is the model size data.
@@ -105,6 +114,35 @@ namespace TPMeshEditor
                         currentPositionInData += tempsize + 4;
                         remainingDataSize -= (tempsize - 4);
                     }
+
+                    /* 
+                     * We will now import material data in a similar fashion.
+                     */
+                    MaterialCount = ((Data4Bytes)(reader.ReadBytes(4))).ui;
+                    currentPositionInData += 4;
+
+                    for (uint i = 0; i < MaterialCount; ++i)
+                    {
+                        uint tempsize = ((Data4Bytes)(reader.ReadBytes(4))).ui;
+                        TPMaterial temp;
+
+                        //Size + 4 because we also want to supply the material size.
+                        List<byte> tempList = new List<byte>((int)tempsize + 4);
+
+                        tempList.InsertRange(0, ((Data4Bytes)tempsize).B);
+                        tempList.InsertRange(4, reader.ReadBytes((int)tempsize).ToList());
+
+                        temp = new TPMaterial(tempList);
+                        materials.Add(temp);
+                        if (temp.PeekLog() != null)
+                        {
+                            log.AppendLine("Material " + i + ": " + temp.DumpLog());
+                        }
+
+                        currentPositionInData += tempsize + 4;
+                        remainingDataSize -= (tempsize - 4);
+                    }
+
                     otherData.Capacity = (int)remainingDataSize;
                     otherData = reader.ReadBytes((int)remainingDataSize).ToList();
                 }
@@ -131,7 +169,7 @@ namespace TPMeshEditor
             {
                 using (BinaryWriter writer = new BinaryWriter(fs))
                 {
-                    foreach(byte b in output)
+                    foreach (byte b in output)
                     {
                         writer.Write(b);
                     }
@@ -141,7 +179,7 @@ namespace TPMeshEditor
 
         public void Transform(float[,] _matrix)
         {
-            if(_matrix.Rank != 2)
+            if (_matrix.Rank != 2)
             {
                 throw new ArgumentException("Transformation matrix must be two-dimensional.");
             }

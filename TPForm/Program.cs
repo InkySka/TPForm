@@ -6,12 +6,6 @@ using System.Windows.Forms;
 
 namespace TPMeshEditor
 {
-    public static class Global
-    {
-        public static List<TPMesh> meshes = new List<TPMesh>();
-        public static float[,] transformatioMatrix = new float[4,4];
-    }
-
     static class Program
     {
         /// <summary>

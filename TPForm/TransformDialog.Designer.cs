@@ -361,6 +361,8 @@
             this.Controls.Add(this.GB_Rotate);
             this.Controls.Add(this.GB_Move);
             this.Name = "TransformDialog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TransformDialog_FormClosing);
+            this.Click += new System.EventHandler(this.TransformDialog_Click);
             ((System.ComponentModel.ISupportInitialize)(this.XMove)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZMove)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.YMove)).EndInit();

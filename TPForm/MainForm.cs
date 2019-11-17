@@ -58,7 +58,6 @@ namespace TPMeshEditor
         }
 
 
-
         private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -96,9 +95,19 @@ namespace TPMeshEditor
             PopulateFileList();
         }
 
+        private void SubComponent_LogChangedHandler(string changedLog)
+        {
+            WriteLog(changedLog);
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TransformForm_CloseHandler(object sender, EventArgs e)
+        {
+            
         }
 
         private void FileList_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -120,8 +129,10 @@ namespace TPMeshEditor
                 WriteLog(temp.PeekLog());
             }
 
-            TransformDialog transformForm = new TransformDialog();
-            transformForm.Show();
+            MeshDetailsWindow meshDetailsWindow = new TransformDialog();
+            meshDetailsWindow.LogChangedEvent += this.SubComponent_LogChangedHandler;
+
+            meshDetailsWindow.Show();
         }
     }
 }

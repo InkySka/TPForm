@@ -119,10 +119,14 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="XMove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
+    <value>14, 49</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="XMove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="XMove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="XMove.TabIndex" type="System.Int32, mscorlib">
@@ -141,10 +145,13 @@
     <value>2</value>
   </data>
   <data name="ZMove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 74</value>
+    <value>14, 165</value>
+  </data>
+  <data name="ZMove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="ZMove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="ZMove.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -162,10 +169,13 @@
     <value>0</value>
   </data>
   <data name="YMove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 48</value>
+    <value>14, 107</value>
+  </data>
+  <data name="YMove.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="YMove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="YMove.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -183,10 +193,13 @@
     <value>4</value>
   </data>
   <data name="F_X.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 21</value>
+    <value>245, 47</value>
+  </data>
+  <data name="F_X.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="F_X.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="F_X.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -207,10 +220,13 @@
     <value>5</value>
   </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 48</value>
+    <value>245, 107</value>
+  </data>
+  <data name="textBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -231,10 +247,13 @@
     <value>3</value>
   </data>
   <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 74</value>
+    <value>245, 165</value>
+  </data>
+  <data name="textBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -255,10 +274,16 @@
     <value>1</value>
   </data>
   <data name="GB_Move.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+    <value>28, 27</value>
+  </data>
+  <data name="GB_Move.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
+  </data>
+  <data name="GB_Move.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="GB_Move.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 100</value>
+    <value>299, 223</value>
   </data>
   <data name="GB_Move.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -278,107 +303,14 @@
   <data name="&gt;&gt;GB_Move.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;ZRot.Name" xml:space="preserve">
-    <value>ZRot</value>
-  </data>
-  <data name="&gt;&gt;ZRot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ZRot.Parent" xml:space="preserve">
-    <value>GB_Rotate</value>
-  </data>
-  <data name="&gt;&gt;ZRot.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;F_Z2.Name" xml:space="preserve">
-    <value>F_Z2</value>
-  </data>
-  <data name="&gt;&gt;F_Z2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;F_Z2.Parent" xml:space="preserve">
-    <value>GB_Rotate</value>
-  </data>
-  <data name="&gt;&gt;F_Z2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;XRot.Name" xml:space="preserve">
-    <value>XRot</value>
-  </data>
-  <data name="&gt;&gt;XRot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;XRot.Parent" xml:space="preserve">
-    <value>GB_Rotate</value>
-  </data>
-  <data name="&gt;&gt;XRot.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;F_Y2.Name" xml:space="preserve">
-    <value>F_Y2</value>
-  </data>
-  <data name="&gt;&gt;F_Y2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;F_Y2.Parent" xml:space="preserve">
-    <value>GB_Rotate</value>
-  </data>
-  <data name="&gt;&gt;F_Y2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;YRot.Name" xml:space="preserve">
-    <value>YRot</value>
-  </data>
-  <data name="&gt;&gt;YRot.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;YRot.Parent" xml:space="preserve">
-    <value>GB_Rotate</value>
-  </data>
-  <data name="&gt;&gt;YRot.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;F_X2.Name" xml:space="preserve">
-    <value>F_X2</value>
-  </data>
-  <data name="&gt;&gt;F_X2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;F_X2.Parent" xml:space="preserve">
-    <value>GB_Rotate</value>
-  </data>
-  <data name="&gt;&gt;F_X2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="GB_Rotate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 118</value>
-  </data>
-  <data name="GB_Rotate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 100</value>
-  </data>
-  <data name="GB_Rotate.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="GB_Rotate.Text" xml:space="preserve">
-    <value>Rotate (DEG)</value>
-  </data>
-  <data name="&gt;&gt;GB_Rotate.Name" xml:space="preserve">
-    <value>GB_Rotate</value>
-  </data>
-  <data name="&gt;&gt;GB_Rotate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;GB_Rotate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;GB_Rotate.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="ZRot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 74</value>
+    <value>14, 165</value>
+  </data>
+  <data name="ZRot.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="ZRot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="ZRot.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -396,10 +328,13 @@
     <value>0</value>
   </data>
   <data name="F_Z2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 74</value>
+    <value>245, 165</value>
+  </data>
+  <data name="F_Z2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="F_Z2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="F_Z2.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -420,10 +355,13 @@
     <value>1</value>
   </data>
   <data name="XRot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
+    <value>14, 49</value>
+  </data>
+  <data name="XRot.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="XRot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="XRot.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -441,10 +379,13 @@
     <value>2</value>
   </data>
   <data name="F_Y2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 48</value>
+    <value>245, 107</value>
+  </data>
+  <data name="F_Y2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="F_Y2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="F_Y2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -465,10 +406,13 @@
     <value>3</value>
   </data>
   <data name="YRot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 48</value>
+    <value>14, 107</value>
+  </data>
+  <data name="YRot.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="YRot.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="YRot.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -486,10 +430,13 @@
     <value>4</value>
   </data>
   <data name="F_X2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 21</value>
+    <value>245, 47</value>
+  </data>
+  <data name="F_X2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="F_X2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="F_X2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -509,11 +456,44 @@
   <data name="&gt;&gt;F_X2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="GB_Rotate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 263</value>
+  </data>
+  <data name="GB_Rotate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
+  </data>
+  <data name="GB_Rotate.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
+  </data>
+  <data name="GB_Rotate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>299, 223</value>
+  </data>
+  <data name="GB_Rotate.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="GB_Rotate.Text" xml:space="preserve">
+    <value>Rotate (DEG)</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.Name" xml:space="preserve">
+    <value>GB_Rotate</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GB_Rotate.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="ZScale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 74</value>
+    <value>14, 165</value>
+  </data>
+  <data name="ZScale.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="ZScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="ZScale.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -531,10 +511,13 @@
     <value>0</value>
   </data>
   <data name="F_Z3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 74</value>
+    <value>245, 165</value>
+  </data>
+  <data name="F_Z3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="F_Z3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="F_Z3.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -555,10 +538,13 @@
     <value>1</value>
   </data>
   <data name="XScale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 22</value>
+    <value>14, 49</value>
+  </data>
+  <data name="XScale.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="XScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="XScale.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -576,10 +562,13 @@
     <value>2</value>
   </data>
   <data name="F_Y3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 48</value>
+    <value>245, 107</value>
+  </data>
+  <data name="F_Y3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="F_Y3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="F_Y3.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -600,10 +589,13 @@
     <value>3</value>
   </data>
   <data name="YScale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 48</value>
+    <value>14, 107</value>
+  </data>
+  <data name="YScale.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="YScale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 20</value>
+    <value>217, 35</value>
   </data>
   <data name="YScale.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -621,10 +613,13 @@
     <value>4</value>
   </data>
   <data name="F_X3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 21</value>
+    <value>245, 47</value>
+  </data>
+  <data name="F_X3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="F_X3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>15, 20</value>
+    <value>30, 35</value>
   </data>
   <data name="F_X3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -645,10 +640,16 @@
     <value>5</value>
   </data>
   <data name="GB_Scale.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 224</value>
+    <value>28, 500</value>
+  </data>
+  <data name="GB_Scale.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
+  </data>
+  <data name="GB_Scale.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="GB_Scale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 100</value>
+    <value>299, 223</value>
   </data>
   <data name="GB_Scale.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -669,10 +670,13 @@
     <value>3</value>
   </data>
   <data name="FilesInFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 21</value>
+    <value>341, 47</value>
+  </data>
+  <data name="FilesInFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="FilesInFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>406, 20</value>
+    <value>942, 35</value>
   </data>
   <data name="FilesInFolder.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -693,10 +697,13 @@
     <value>2</value>
   </data>
   <data name="LoadedMeshesList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 48</value>
+    <value>343, 107</value>
+  </data>
+  <data name="LoadedMeshesList.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="LoadedMeshesList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>405, 244</value>
+    <value>940, 539</value>
   </data>
   <data name="LoadedMeshesList.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -714,10 +721,13 @@
     <value>1</value>
   </data>
   <data name="buttonApplyTransformations.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 295</value>
+    <value>343, 658</value>
+  </data>
+  <data name="buttonApplyTransformations.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="buttonApplyTransformations.Size" type="System.Drawing.Size, System.Drawing">
-    <value>405, 23</value>
+    <value>945, 51</value>
   </data>
   <data name="buttonApplyTransformations.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -741,10 +751,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>14, 29</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>564, 329</value>
+    <value>1316, 734</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 7, 7, 7</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TransformDialog</value>

@@ -65,6 +65,12 @@ namespace TPMeshEditor
         [FieldOffset(0)] private short s0;
         [FieldOffset(2)] private short s1;
 
+        [FieldOffset(0)] private ushort us0;
+        [FieldOffset(2)] private ushort us1;
+
+        [FieldOffset(0)] private char c0;
+        [FieldOffset(2)] private char c1;
+
         public static implicit operator Data4Bytes(float _val)
         {
             Data4Bytes obj = new Data4Bytes();
@@ -102,6 +108,30 @@ namespace TPMeshEditor
         public static implicit operator Data4Bytes(List<short> _val)
         {
             return (Data4Bytes)(_val.ToArray());
+        }
+        public static implicit operator Data4Bytes(ushort[] _val)
+        {
+            Data4Bytes obj = new Data4Bytes();
+            obj.US = _val;
+            return obj;
+        }
+        public static implicit operator Data4Bytes(char[] _val)
+        {
+            Data4Bytes obj = new Data4Bytes();
+            obj.C = _val;
+            return obj;
+        }
+        public static implicit operator Data4Bytes(List<ushort> _val)
+        {
+            Data4Bytes obj = new Data4Bytes();
+            obj.US = _val.ToArray();
+            return obj;
+        }
+        public static implicit operator Data4Bytes(List<char> _val)
+        {
+            Data4Bytes obj = new Data4Bytes();
+            obj.C = _val.ToArray();
+            return obj;
         }
 
         /*public Data4Bytes(float _f) : this()
@@ -143,6 +173,38 @@ namespace TPMeshEditor
                 s1 = value[1];
             }
         }
+        public ushort[] US
+        {
+            get
+            {
+                return new ushort[2] { us0, us1 };
+            }
+            set
+            {
+                if (value.Count() != 2)
+                {
+                    throw new ArgumentException("Size of ushort array must be 2.");
+                }
+                us0 = value[0];
+                us1 = value[1];
+            }
+        }
+        public char[] C
+        {
+            get
+            {
+                return new char[2] { c0, c1 };
+            }
+            set
+            {
+                if (value.Count() != 2)
+                {
+                    throw new ArgumentException("Size of ushort array must be 2.");
+                }
+                c0 = value[0];
+                c1 = value[1];
+            }
+        }
 
         /// <summary>
         /// Generates a <see cref="Data4Bytes"/> List from a byte array.
@@ -169,6 +231,26 @@ namespace TPMeshEditor
             for (int i = 0; i < _bl.Count / 4; ++i)
             {
                 Data4Bytes temp = _bl.GetRange(i * 4, 4);
+                output.Add(temp);
+            }
+
+            return output;
+        }
+
+        public static List<Data4Bytes> GenerateFromCharArray(char[] _bl)
+        {
+            return GenerateFromCharArray(new List<char>(_bl));
+        }
+        public static List<Data4Bytes> GenerateFromCharArray(List<char> _bl)
+        {
+            if (_bl.Count % 2 != 0)
+                throw new ArgumentException("Size of byte array must be a multiple of four.");
+
+            List<Data4Bytes> output = new List<Data4Bytes>(_bl.Count / 2);
+
+            for (int i = 0; i < _bl.Count / 2; ++i)
+            {
+                Data4Bytes temp = _bl.GetRange(i * 2, 2);
                 output.Add(temp);
             }
 

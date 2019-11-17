@@ -4,6 +4,23 @@
         <name>TPMeshEditor</name>
     </assembly>
     <members>
+        <member name="F:TPMeshEditor.ConfirmationDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TPMeshEditor.ConfirmationDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TPMeshEditor.ConfirmationDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:TPMeshEditor.FileOperations">
             <summary>
             Class that holds the current directory and provides the list of files to work on.
@@ -223,6 +240,11 @@
             <remarks>
             The class issues a warning when this is filled on initialisation.
             </remarks>
+        </member>
+        <member name="F:TPMeshEditor.TPMaterial.textureName">
+            <summary>
+            Used to mantain compatibility with the 8-bit byte system.
+            </summary>
         </member>
         <member name="M:TPMeshEditor.TPModel.#ctor(System.Collections.Generic.List{System.Byte})">
             <summary>

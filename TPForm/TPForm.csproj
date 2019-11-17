@@ -48,7 +48,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmationDialog.Designer.cs">
+      <DependentUpon>ConfirmationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileOperations.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="MeshDetailsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MeshDetailsWindow.Designer.cs">
+      <DependentUpon>MeshDetailsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Miscellaneous.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -58,6 +71,7 @@
     </Compile>
     <Compile Include="TPAnimFrame.cs" />
     <Compile Include="TPFace.cs" />
+    <Compile Include="TPMaterial.cs" />
     <Compile Include="TPModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +84,14 @@
     <Compile Include="TransformDialog.Designer.cs">
       <DependentUpon>TransformDialog.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfirmationDialog.resx">
+      <DependentUpon>ConfirmationDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MeshDetailsWindow.resx">
+      <DependentUpon>MeshDetailsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
