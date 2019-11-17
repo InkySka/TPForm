@@ -23,9 +23,9 @@ namespace TPMeshEditor
             }
 
             log = new StringBuilder();
-            vertices = new List<TPVertex>();
-            faces = new List<TPFace>();
-            animationFrames = new List<TPAnimFrame>();
+            Vertices = new List<TPVertex>();
+            Faces = new List<TPFace>();
+            AnimationFrames = new List<TPAnimFrame>();
 
             //using internal method to import to avoid having a complicated constructor.
             try
@@ -38,9 +38,9 @@ namespace TPMeshEditor
             }
         }
 
-        private List<TPVertex> vertices;
-        private List<TPFace> faces;
-        private List<TPAnimFrame> animationFrames;
+        public List<TPVertex> Vertices { get; private set; }
+        public List<TPFace> Faces { get; private set; }
+        public List<TPAnimFrame> AnimationFrames { get; private set; }
         private StringBuilder log;
 
         public uint Size
@@ -97,7 +97,7 @@ namespace TPMeshEditor
                 /* We get a number of bytes that is the size + 4, because we also supply the size to the vertex object. 
                  */
                 temp = new TPVertex(_rawdata.GetRange((int)currentPositionInData, (int)(tempsize + 4)));
-                vertices.Add(temp);
+                Vertices.Add(temp);
                 if (temp.PeekLog() != "")
                 {
                     log.AppendLine("Vertex " + i + ": " + temp.DumpLog());
@@ -120,7 +120,7 @@ namespace TPMeshEditor
 
                 //adds face data to temp face, remembering that we are dealing with 4-byte data and the size counter counts single bytes
                 temp = new TPFace(_rawdata.GetRange((int)currentPositionInData, (int)(tempsize + 4)));
-                faces.Add(temp);
+                Faces.Add(temp);
                 if (temp.PeekLog() != "")
                 {
                     log.AppendLine("Face " + i + ": " + temp.DumpLog());
@@ -142,7 +142,7 @@ namespace TPMeshEditor
                 TPAnimFrame temp;
 
                 temp = new TPAnimFrame(_rawdata.GetRange((int)currentPositionInData, (int)(tempsize + 4)));
-                animationFrames.Add(temp);
+                AnimationFrames.Add(temp);
                 if (temp.PeekLog() != null)
                 {
                     log.AppendLine("Face " + i + ": " + temp.DumpLog());
@@ -162,19 +162,19 @@ namespace TPMeshEditor
             output.AddRange(((Data4Bytes)ID).B);
 
             output.AddRange(((Data4Bytes)VertexCount).B);
-            foreach (TPVertex v in vertices)
+            foreach (TPVertex v in Vertices)
             {
                 output.AddRange(v.Get());
             }
 
             output.AddRange(((Data4Bytes)FaceCount).B);
-            foreach (TPFace f in faces)
+            foreach (TPFace f in Faces)
             {
                 output.AddRange(f.Get());
             }
 
             output.AddRange(((Data4Bytes)AnimationFrameCount).B);
-            foreach (TPAnimFrame a in animationFrames)
+            foreach (TPAnimFrame a in AnimationFrames)
             {
                 output.AddRange(a.Get());
             }
@@ -184,7 +184,7 @@ namespace TPMeshEditor
 
         public void Transform(float[,] _matrix)
         {
-            foreach(TPVertex v in vertices)
+            foreach(TPVertex v in Vertices)
             {
                 v.Transform(_matrix);
             }

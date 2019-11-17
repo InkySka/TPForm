@@ -52,8 +52,8 @@ namespace TPMeshEditor
         public float Z { get; set; }
         public float Vt_u { get; set; }
         public float Vt_v { get; set; }
-        public uint Unknown1 { get; set; }
-        public uint Unknown2 { get; set; }
+        public float Unknown1 { get; set; }
+        public float Unknown2 { get; set; }
         public uint Transparency { get; set; }
 
         /// <summary>
@@ -73,8 +73,8 @@ namespace TPMeshEditor
                 ((Data4Bytes)_rawdata.GetRange(12, 4)).f,     //_z
                 ((Data4Bytes)_rawdata.GetRange(16, 4)).f,   //_vt_u
                 ((Data4Bytes)_rawdata.GetRange(20, 4)).f,       //_vt_v
-                ((Data4Bytes)_rawdata.GetRange(24, 4)).ui,     //_ukn1
-                ((Data4Bytes)_rawdata.GetRange(28, 4)).ui,     //_ukn2
+                ((Data4Bytes)_rawdata.GetRange(24, 4)).f,     //_ukn1
+                ((Data4Bytes)_rawdata.GetRange(28, 4)).f,     //_ukn2
                 ((Data4Bytes)_rawdata.GetRange(32, 4)).ui    //_transp
                 );
 
@@ -89,7 +89,7 @@ namespace TPMeshEditor
         /// </summary>
         public void IndividualSet(uint _sz, float _x, float _y, float _z,
             float _vt_u, float _vt_v,
-            uint _ukn1, uint _ukn2, uint _transp)
+            float _ukn1, float _ukn2, uint _transp)
         {
             Size = _sz;
             X = _x;

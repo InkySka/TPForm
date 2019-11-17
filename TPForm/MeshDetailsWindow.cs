@@ -82,5 +82,61 @@ namespace TPMeshEditor
 
             transformDialog.Show();
         }
+
+        private void MeshComponentsView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            /*  
+             *  Models
+             *  | Model 0
+             *  | | Vertices
+             *  | | Faces
+             *  ...
+             *  Materials
+             *  | Material 0
+             *  ...
+             */
+            if(meshComponentsView.SelectedNode.Text == "Vertices")
+            {
+                dataView.Clear();
+                dataView.Columns.Add("Vertex number");
+                dataView.Columns.Add("Size");
+                dataView.Columns.Add("X");
+                dataView.Columns.Add("Y");
+                dataView.Columns.Add("Z");
+                dataView.Columns.Add("VT_U");
+                dataView.Columns.Add("VT_V");
+                dataView.Columns.Add("Unknown1");
+                dataView.Columns.Add("Unknown2");
+                dataView.Columns.Add("Transparency");
+
+                int tempModelNum = meshComponentsView.SelectedNode.Parent.Index;
+
+                for(int i = 0; i < ((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices.Count; ++i)
+                {
+                    List<string> values = new List<string>();
+
+                    values.Add(i.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Size.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].X.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Y.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Z.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Vt_u.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Vt_v.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Unknown1.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Unknown2.ToString());
+                    values.Add(((TPMesh)MeshSelector.SelectedItem).Models[tempModelNum].Vertices[i].Transparency.ToString());
+
+                    ListViewItem temp = new ListViewItem(values.ToArray());
+                    dataView.Items.Add(temp);
+                }
+
+                /*foreach (ListView.ColumnHeaderCollection c in dataView.Columns)
+                {
+                    c.Add("TEST");
+                }*/
+
+                //foreach(TPVertex v in ((TPModel)meshComponentsView.SelectedNode.Parent).Vertices)
+            }
+        }
     }
 }

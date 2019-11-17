@@ -337,7 +337,7 @@
             The class issues a warning when this is filled on initialisation.
             </remarks>
         </member>
-        <member name="M:TPMeshEditor.TPVertex.IndividualSet(System.UInt32,System.Single,System.Single,System.Single,System.Single,System.Single,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:TPMeshEditor.TPVertex.IndividualSet(System.UInt32,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.UInt32)">
             <summary>
             Used to initialise parameters individually.
             </summary>

@@ -84,25 +84,9 @@ namespace TPMeshEditor
 
             if (confirm.DialogResult == DialogResult.OK)
             {
-                Global.transformationMatrix[0, 0] = (float)XScale.Value;
-                Global.transformationMatrix[1, 0] = 0;
-                Global.transformationMatrix[2, 0] = 0;
-                Global.transformationMatrix[3, 0] = 0;
-
-                Global.transformationMatrix[0, 1] = 0;
-                Global.transformationMatrix[1, 1] = (float)YScale.Value;
-                Global.transformationMatrix[2, 1] = 0;
-                Global.transformationMatrix[3, 1] = 0;
-
-                Global.transformationMatrix[0, 2] = 0;
-                Global.transformationMatrix[1, 2] = 0;
-                Global.transformationMatrix[2, 2] = (float)ZScale.Value;
-                Global.transformationMatrix[3, 2] = 0;
-
-                Global.transformationMatrix[0, 3] = (float)XMove.Value;
-                Global.transformationMatrix[1, 3] = (float)YMove.Value;
-                Global.transformationMatrix[2, 3] = (float)ZMove.Value;
-                Global.transformationMatrix[3, 3] = 0;
+                Global.FillTransformationMatrix((double)XMove.Value, (double)YMove.Value, (double)ZMove.Value,
+                    (double)XRot.Value,(double)YRot.Value,(double)ZRot.Value,
+                    (double)XScale.Value, (double)YScale.Value, (double)ZScale.Value);
 
                 foreach (TPMesh m in LoadedMeshesList.CheckedItems)
                 {

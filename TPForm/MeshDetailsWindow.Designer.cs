@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.MeshSelector = new System.Windows.Forms.ComboBox();
-            this.meshComponentsView = new System.Windows.Forms.TreeView();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.dataView = new System.Windows.Forms.ListView();
             this.bOpenTransformationDialog = new System.Windows.Forms.Button();
+            this.meshComponentsView = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // MeshSelector
@@ -43,25 +43,20 @@
             this.MeshSelector.TabIndex = 0;
             this.MeshSelector.SelectedIndexChanged += new System.EventHandler(this.MeshSelector_SelectedIndexChanged);
             // 
-            // meshComponentsView
+            // dataView
             // 
-            this.meshComponentsView.Location = new System.Drawing.Point(12, 39);
-            this.meshComponentsView.Name = "meshComponentsView";
-            this.meshComponentsView.Size = new System.Drawing.Size(321, 298);
-            this.meshComponentsView.TabIndex = 1;
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(340, 39);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(355, 298);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.dataView.AllowColumnReorder = true;
+            this.dataView.HideSelection = false;
+            this.dataView.Location = new System.Drawing.Point(339, 39);
+            this.dataView.Name = "dataView";
+            this.dataView.Size = new System.Drawing.Size(795, 415);
+            this.dataView.TabIndex = 2;
+            this.dataView.UseCompatibleStateImageBehavior = false;
+            this.dataView.View = System.Windows.Forms.View.Details;
             // 
             // bOpenTransformationDialog
             // 
-            this.bOpenTransformationDialog.Location = new System.Drawing.Point(340, 12);
+            this.bOpenTransformationDialog.Location = new System.Drawing.Point(339, 10);
             this.bOpenTransformationDialog.Name = "bOpenTransformationDialog";
             this.bOpenTransformationDialog.Size = new System.Drawing.Size(161, 23);
             this.bOpenTransformationDialog.TabIndex = 3;
@@ -69,16 +64,24 @@
             this.bOpenTransformationDialog.UseVisualStyleBackColor = true;
             this.bOpenTransformationDialog.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BOpenTransformationDialog_MouseClick);
             // 
+            // meshComponentsView
+            // 
+            this.meshComponentsView.Location = new System.Drawing.Point(12, 39);
+            this.meshComponentsView.Name = "meshComponentsView";
+            this.meshComponentsView.Size = new System.Drawing.Size(321, 415);
+            this.meshComponentsView.TabIndex = 1;
+            this.meshComponentsView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.MeshComponentsView_AfterSelect);
+            // 
             // MeshDetailsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 349);
+            this.ClientSize = new System.Drawing.Size(1146, 466);
             this.Controls.Add(this.bOpenTransformationDialog);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dataView);
             this.Controls.Add(this.meshComponentsView);
             this.Controls.Add(this.MeshSelector);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "MeshDetailsWindow";
             this.Text = "MeshDetails";
             this.ResumeLayout(false);
@@ -88,8 +91,8 @@
         #endregion
 
         private System.Windows.Forms.ComboBox MeshSelector;
-        private System.Windows.Forms.TreeView meshComponentsView;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView dataView;
         private System.Windows.Forms.Button bOpenTransformationDialog;
+        private System.Windows.Forms.TreeView meshComponentsView;
     }
 }
