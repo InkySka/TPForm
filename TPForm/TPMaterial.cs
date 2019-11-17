@@ -76,9 +76,10 @@ namespace TPMeshEditor
             List<byte> output = new List<byte>((int)Size + 4);
 
             output.AddRange(((Data4Bytes)Size).B);
-            foreach(Data4Bytes d in Data4Bytes.GenerateFromCharArray(TextureName.ToArray()))
+            output.AddRange(((Data4Bytes)TextureNameLength).B);
+            foreach (byte b in TextureName.ToArray())
             {
-                output.AddRange(d.B);
+                output.Add(b);
             }
             foreach(Data4Bytes d in Unknown)
             {

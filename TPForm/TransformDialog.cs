@@ -88,10 +88,10 @@ namespace TPMeshEditor
                     (double)XRot.Value,(double)YRot.Value,(double)ZRot.Value,
                     (double)XScale.Value, (double)YScale.Value, (double)ZScale.Value);
 
-                foreach (TPMesh m in LoadedMeshesList.CheckedItems)
+                foreach (int i in LoadedMeshesList.CheckedIndices)
                 {
-                    m.Transform(Global.transformationMatrix);
-                    m.Export();
+                    Global.meshes[i].Transform(Global.transformationMatrix);
+                    Global.meshes[i].Export();
                 }
             }
         }

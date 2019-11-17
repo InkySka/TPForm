@@ -169,6 +169,13 @@ namespace TPMeshEditor
                 output.AddRange(m.Get());
             }
 
+            output.AddRange(((Data4Bytes)MaterialCount).B);
+
+            foreach (TPMaterial m in Materials)
+            {
+                output.AddRange(m.Get());
+            }
+
             output.AddRange(OtherData);
 
             using (FileStream fs = new FileStream(OutputFilename, FileMode.Create))
