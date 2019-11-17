@@ -16,6 +16,7 @@ namespace TPMeshEditor
         public TransformDialog()
         {
             InitializeComponent();
+            log = new StringBuilder();
 
             if (LoadedMeshesList.Items.Count != 0)
             {
@@ -23,8 +24,9 @@ namespace TPMeshEditor
             }
             foreach (TPMesh m in Global.meshes)
             {
-                FileInfo temp = new FileInfo(m.Filename);
-                LoadedMeshesList.Items.Add(temp.Name);
+                /*FileInfo temp = new FileInfo(m.Filename);
+                LoadedMeshesList.Items.Add(temp.Name);*/
+                LoadedMeshesList.Items.Add(m);
             }
         }
         
@@ -71,7 +73,7 @@ namespace TPMeshEditor
             
         }
 
-        private void ButtonApplyTransformations_Click(object sender, EventArgs e)
+        private void BApplyTransformations_Click(object sender, EventArgs e)
         {
             ConfirmationDialog confirm = new ConfirmationDialog();
             confirm.FormClosing += ConfirmationDialog_CloseHandler;
@@ -102,7 +104,7 @@ namespace TPMeshEditor
                 Global.transformationMatrix[2, 3] = (float)ZMove.Value;
                 Global.transformationMatrix[3, 3] = 0;
 
-                foreach (TPMesh m in Global.meshes)
+                foreach (TPMesh m in LoadedMeshesList.CheckedItems)
                 {
                     m.Transform(Global.transformationMatrix);
                     m.Export();
@@ -118,6 +120,18 @@ namespace TPMeshEditor
         private void TransformDialog_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoadedMeshesList_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            if (LoadedMeshesList.CheckedItems.Count > 0)
+            {
+                bApplyTransformations.Enabled = true;
+            }
+            else
+            {
+                bApplyTransformations.Enabled = false;
+            }
         }
     }
 }

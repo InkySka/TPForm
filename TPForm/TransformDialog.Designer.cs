@@ -52,7 +52,7 @@
             this.F_X3 = new System.Windows.Forms.TextBox();
             this.FilesInFolder = new System.Windows.Forms.TextBox();
             this.LoadedMeshesList = new System.Windows.Forms.ListView();
-            this.buttonApplyTransformations = new System.Windows.Forms.Button();
+            this.bApplyTransformations = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.XMove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZMove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.YMove)).BeginInit();
@@ -342,19 +342,21 @@
             this.LoadedMeshesList.Name = "LoadedMeshesList";
             this.LoadedMeshesList.UseCompatibleStateImageBehavior = false;
             this.LoadedMeshesList.View = System.Windows.Forms.View.List;
+            this.LoadedMeshesList.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.LoadedMeshesList_ItemChecked);
+            this.LoadedMeshesList.SelectedIndexChanged += new System.EventHandler(this.TransformDialog_Click);
             // 
-            // buttonApplyTransformations
+            // bApplyTransformations
             // 
-            resources.ApplyResources(this.buttonApplyTransformations, "buttonApplyTransformations");
-            this.buttonApplyTransformations.Name = "buttonApplyTransformations";
-            this.buttonApplyTransformations.UseVisualStyleBackColor = true;
-            this.buttonApplyTransformations.Click += new System.EventHandler(this.ButtonApplyTransformations_Click);
+            resources.ApplyResources(this.bApplyTransformations, "bApplyTransformations");
+            this.bApplyTransformations.Name = "bApplyTransformations";
+            this.bApplyTransformations.UseVisualStyleBackColor = true;
+            this.bApplyTransformations.Click += new System.EventHandler(this.BApplyTransformations_Click);
             // 
             // TransformDialog
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.buttonApplyTransformations);
+            this.Controls.Add(this.bApplyTransformations);
             this.Controls.Add(this.LoadedMeshesList);
             this.Controls.Add(this.FilesInFolder);
             this.Controls.Add(this.GB_Scale);
@@ -408,6 +410,6 @@
         private System.Windows.Forms.TextBox F_X3;
         private System.Windows.Forms.TextBox FilesInFolder;
         private System.Windows.Forms.ListView LoadedMeshesList;
-        private System.Windows.Forms.Button buttonApplyTransformations;
+        private System.Windows.Forms.Button bApplyTransformations;
     }
 }

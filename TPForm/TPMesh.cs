@@ -12,10 +12,10 @@ namespace TPMeshEditor
         public TPMesh(string _filename)
         {
             log = new StringBuilder();
-            models = new List<TPModel>();
-            header = new List<Data4Bytes>();
-            otherData = new List<byte>();
-            materials = new List<TPMaterial>();
+            Models = new List<TPModel>();
+            Header = new List<Data4Bytes>();
+            OtherData = new List<byte>();
+            Materials = new List<TPMaterial>();
 
             Filename = _filename;
             FileInfo temp = new FileInfo(_filename);
@@ -30,10 +30,10 @@ namespace TPMeshEditor
 
         public int debugLevel = 0;
         private StringBuilder log;
-        private List<TPModel> models;
-        private List<Data4Bytes> header;
-        List<TPMaterial> materials;
-        private List<byte> otherData;
+        public List<TPModel> Models { get; private set; }
+        public List<Data4Bytes> Header { get; private set; }
+        public List<TPMaterial> Materials { get; private set; }
+        public List<byte> OtherData { get; private set; }
 
         public string Filename { get; private set; }
         public string OutputFilename { get; private set; }
@@ -41,17 +41,17 @@ namespace TPMeshEditor
         public long OriginalFileSize { get; }
         public uint Size
         {
-            get { return header[0].ui; }
+            get { return Header[0].ui; }
             private set 
             {
-                this.header[0] = value;
-                this.header[2] = value - 12;
+                this.Header[0] = value;
+                this.Header[2] = value - 12;
             }
         }
         public uint ModelCount
         {
-            get { return header[3].ui; }
-            private set { header[3] = value; }
+            get { return Header[3].ui; }
+            private set { Header[3] = value; }
         }
         public uint MaterialCount { get; private set; }
 
@@ -76,7 +76,7 @@ namespace TPMeshEditor
 
                     tempHeader.AddRange(Data4Bytes.GenerateFromByteArray(reader.ReadBytes(16)));
 
-                    header = tempHeader;
+                    Header = tempHeader;
 
                     uint remainingDataSize = (uint)OriginalFileSize; // Will be decreased later.
 
@@ -105,15 +105,18 @@ namespace TPMeshEditor
                         tempList.InsertRange(4, reader.ReadBytes((int)tempsize).ToList());
 
                         temp = new TPModel(tempList);
-                        models.Add(temp);
-                        if (temp.PeekLog() != null)
+                        Models.Add(temp);
+                        if (temp.PeekLog() != String.Empty)
                         {
-                            log.AppendLine("Model " + i + ": " + temp.DumpLog());
+                            log.AppendLine("--- Model " + i + " ---");
+                            log.AppendLine(temp.DumpLog());
                         }
 
                         currentPositionInData += tempsize + 4;
                         remainingDataSize -= (tempsize - 4);
                     }
+
+                    log.AppendLine("Added " + ModelCount + " model(s).");
 
                     /* 
                      * We will now import material data in a similar fashion.
@@ -133,18 +136,21 @@ namespace TPMeshEditor
                         tempList.InsertRange(4, reader.ReadBytes((int)tempsize).ToList());
 
                         temp = new TPMaterial(tempList);
-                        materials.Add(temp);
-                        if (temp.PeekLog() != null)
+                        Materials.Add(temp);
+                        if (temp.PeekLog() != String.Empty)
                         {
-                            log.AppendLine("Material " + i + ": " + temp.DumpLog());
+                            log.AppendLine("--- Material " + i + " ---");
+                            log.AppendLine(temp.DumpLog());
                         }
 
                         currentPositionInData += tempsize + 4;
                         remainingDataSize -= (tempsize - 4);
                     }
 
-                    otherData.Capacity = (int)remainingDataSize;
-                    otherData = reader.ReadBytes((int)remainingDataSize).ToList();
+                    log.AppendLine("Added " + MaterialCount + " material(s).");
+
+                    OtherData.Capacity = (int)remainingDataSize;
+                    OtherData = reader.ReadBytes((int)remainingDataSize).ToList();
                 }
             }
         }
@@ -153,17 +159,17 @@ namespace TPMeshEditor
         {
             List<byte> output = new List<byte>((int)Size + 4);
 
-            foreach (Data4Bytes d in header)
+            foreach (Data4Bytes d in Header)
             {
                 output.AddRange(d.B);
             }
 
-            foreach (TPModel m in models)
+            foreach (TPModel m in Models)
             {
                 output.AddRange(m.Get());
             }
 
-            output.AddRange(otherData);
+            output.AddRange(OtherData);
 
             using (FileStream fs = new FileStream(OutputFilename, FileMode.Create))
             {
@@ -183,7 +189,7 @@ namespace TPMeshEditor
             {
                 throw new ArgumentException("Transformation matrix must be two-dimensional.");
             }
-            foreach (TPModel m in models)
+            foreach (TPModel m in Models)
             {
                 m.Transform(_matrix);
             }
@@ -215,7 +221,14 @@ namespace TPMeshEditor
 
         public static implicit operator string(TPMesh m)
         {
-            return m.Filename;
+            FileInfo temp = new FileInfo(m.Filename);
+            return temp.Name;
+        }
+
+        public override string ToString()
+        {
+            FileInfo temp = new FileInfo(this.Filename);
+            return temp.Name;
         }
     }
 }

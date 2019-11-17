@@ -106,6 +106,8 @@ namespace TPMeshEditor
                 currentPositionInData += tempsize + 4;
             }
 
+            log.AppendLine("Added " + VertexCount + " vertices");
+
             FaceCount = ((Data4Bytes)(_rawdata.GetRange((int)currentPositionInData, 4))).ui;
             currentPositionInData += 4;
 
@@ -127,6 +129,8 @@ namespace TPMeshEditor
                 currentPositionInData += tempsize + 4;
             }
 
+            log.AppendLine("Added " + FaceCount + " face(s).");
+
             AnimationFrameCount = ((Data4Bytes)(_rawdata.GetRange((int)currentPositionInData, 4))).ui;
             currentPositionInData += 4;
 
@@ -146,6 +150,8 @@ namespace TPMeshEditor
 
                 currentPositionInData += tempsize + 4;
             }
+
+            log.AppendLine("Added " + AnimationFrameCount + " animation frame(s).");
         }
 
         public List<byte> Get()
@@ -196,6 +202,16 @@ namespace TPMeshEditor
             log.Clear();
 
             return output;
+        }
+
+        public static implicit operator string(TPModel m)
+        {
+            return "Model " + m.ID;
+        }
+
+        public override string ToString()
+        {
+            return "Model " + this.ID;
         }
     }
 

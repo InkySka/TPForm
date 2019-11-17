@@ -129,7 +129,7 @@ namespace TPMeshEditor
                 WriteLog(temp.PeekLog());
             }
 
-            MeshDetailsWindow meshDetailsWindow = new TransformDialog();
+            MeshDetailsWindow meshDetailsWindow = new MeshDetailsWindow();
             meshDetailsWindow.LogChangedEvent += this.SubComponent_LogChangedHandler;
 
             meshDetailsWindow.Show();

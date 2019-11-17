@@ -101,6 +101,17 @@ namespace TPMeshEditor
             return output;
         }
 
+        public static implicit operator string(TPMaterial m)
+        {
+            return m.TextureName;
+        }
+
+        public override string ToString()
+        {
+            return this.TextureName;
+        }
+
+
     }
 }
 
