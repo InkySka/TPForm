@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace TPMeshEditor
 {
+
     public static class Global
     {
+        public static readonly uint DefaultMaterialDataSize = 18;
+
         public static List<TPMesh> meshes = new List<TPMesh>();
         public static float[,] transformationMatrix = new float[4, 4];
         public static double ToRadians(double deg)

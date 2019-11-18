@@ -22,6 +22,7 @@ namespace TPMeshEditor
         // Size(4 bytes) + String_Length(4 bytes) + string(n bytes) + 72 bytes
         static readonly private uint DefaultDataSizeExcludingtextureName = 80;
         public uint Size { get; private set; }
+        //public uint ID { get; private set; }
         public uint TextureNameLength { get; private set; }
         public string TextureName 
         { 
@@ -52,7 +53,7 @@ namespace TPMeshEditor
         /// Used to mantain compatibility with the 8-bit byte system.
         /// </summary>
         private List<byte> textureName;
-        List<Data4Bytes> Unknown;
+        public List<Data4Bytes> Unknown { get; set; }
         List<byte> Unknown_Reserved;
 
         public void Set(List<byte> _rawdata)

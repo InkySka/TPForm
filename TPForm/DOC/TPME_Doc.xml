@@ -103,6 +103,13 @@
             <remarks>Only for internal use; should only read from - and write to - internal variables.
             Used during initialisation to fill the file list.</remarks>
         </member>
+        <member name="M:TPMeshEditor.MeshDetailsWindow.MeshComponentsView_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            Fills the List tree.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
         <member name="F:TPMeshEditor.MeshDetailsWindow.components">
             <summary>
             Required designer variable.

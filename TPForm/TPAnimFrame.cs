@@ -23,6 +23,12 @@ namespace TPMeshEditor
             Set(_rawdata);
         }
 
+        public List<byte> Unknown;
+
+        public uint Size { get; private set; }
+        public uint DEV_Amt { get; private set; }
+        public float DEV_Div { get; private set; }
+
         public void Set(List<byte> _rawdata)
         {
             if (_rawdata.Count > 0)
@@ -30,6 +36,9 @@ namespace TPMeshEditor
                 Size = ((Data4Bytes)_rawdata.GetRange(0, 4)).ui;
                 Unknown = _rawdata.Skip(4).ToList();
             }
+
+            DEV_Amt = Unknown[0];
+            DEV_Div = ((float)Size - 4) / (float)DEV_Amt;
         }
 
         public void SetAdditionalData(List<Data4Bytes> _ukn_res)
@@ -71,9 +80,5 @@ namespace TPMeshEditor
 
             return output;
         }
-
-        public List<byte> Unknown;
-
-        public uint Size { get; private set; }
     }
 }

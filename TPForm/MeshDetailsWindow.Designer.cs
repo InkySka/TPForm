@@ -37,9 +37,10 @@
             // MeshSelector
             // 
             this.MeshSelector.FormattingEnabled = true;
-            this.MeshSelector.Location = new System.Drawing.Point(12, 12);
+            this.MeshSelector.Location = new System.Drawing.Point(28, 27);
+            this.MeshSelector.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.MeshSelector.Name = "MeshSelector";
-            this.MeshSelector.Size = new System.Drawing.Size(321, 21);
+            this.MeshSelector.Size = new System.Drawing.Size(744, 37);
             this.MeshSelector.TabIndex = 0;
             this.MeshSelector.SelectedIndexChanged += new System.EventHandler(this.MeshSelector_SelectedIndexChanged);
             // 
@@ -47,18 +48,20 @@
             // 
             this.dataView.AllowColumnReorder = true;
             this.dataView.HideSelection = false;
-            this.dataView.Location = new System.Drawing.Point(339, 39);
+            this.dataView.Location = new System.Drawing.Point(791, 87);
+            this.dataView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(795, 415);
+            this.dataView.Size = new System.Drawing.Size(1850, 921);
             this.dataView.TabIndex = 2;
             this.dataView.UseCompatibleStateImageBehavior = false;
             this.dataView.View = System.Windows.Forms.View.Details;
             // 
             // bOpenTransformationDialog
             // 
-            this.bOpenTransformationDialog.Location = new System.Drawing.Point(339, 10);
+            this.bOpenTransformationDialog.Location = new System.Drawing.Point(791, 22);
+            this.bOpenTransformationDialog.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.bOpenTransformationDialog.Name = "bOpenTransformationDialog";
-            this.bOpenTransformationDialog.Size = new System.Drawing.Size(161, 23);
+            this.bOpenTransformationDialog.Size = new System.Drawing.Size(376, 51);
             this.bOpenTransformationDialog.TabIndex = 3;
             this.bOpenTransformationDialog.Text = "Open transformation dialog";
             this.bOpenTransformationDialog.UseVisualStyleBackColor = true;
@@ -66,22 +69,23 @@
             // 
             // meshComponentsView
             // 
-            this.meshComponentsView.Location = new System.Drawing.Point(12, 39);
+            this.meshComponentsView.Location = new System.Drawing.Point(28, 87);
+            this.meshComponentsView.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.meshComponentsView.Name = "meshComponentsView";
-            this.meshComponentsView.Size = new System.Drawing.Size(321, 415);
+            this.meshComponentsView.Size = new System.Drawing.Size(744, 921);
             this.meshComponentsView.TabIndex = 1;
             this.meshComponentsView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.MeshComponentsView_AfterSelect);
             // 
             // MeshDetailsWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1146, 466);
+            this.ClientSize = new System.Drawing.Size(2674, 1040);
             this.Controls.Add(this.bOpenTransformationDialog);
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.meshComponentsView);
             this.Controls.Add(this.MeshSelector);
-            this.Margin = new System.Windows.Forms.Padding(1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MeshDetailsWindow";
             this.Text = "MeshDetails";
             this.ResumeLayout(false);
