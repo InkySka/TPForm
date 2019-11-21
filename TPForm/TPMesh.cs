@@ -7,7 +7,7 @@ using System.IO;
 
 namespace TPMeshEditor
 {
-    public class TPMesh : ILoggable, ITransformable
+    public class TPMesh : ILoggable
     {
         public TPMesh(string _filename)
         {
@@ -178,7 +178,12 @@ namespace TPMeshEditor
 
             output.AddRange(OtherData);
 
-            using (FileStream fs = new FileStream(OutputFilename, FileMode.Create))
+            FileInfo outputFile = new FileInfo(OutputFilename);
+
+            if (outputFile.Exists)
+                outputFile.Delete();
+
+            using (FileStream fs = new FileStream(outputFile.FullName, FileMode.Create))
             {
                 using (BinaryWriter writer = new BinaryWriter(fs))
                 {
@@ -190,11 +195,13 @@ namespace TPMeshEditor
             }
         }
 
-        public void Transform(float[,] _matrix)
+        //public void Transform(float[,] _matrix)
+
+        public void Transform(TransformationMatrix _matrix)
         {
-            if (_matrix.Rank != 2)
+            if (_matrix.Rank != 3)
             {
-                throw new ArgumentException("Transformation matrix must be two-dimensional.");
+                throw new ArgumentException("Transformation matrix must be three-dimensional.");
             }
             foreach (TPModel m in Models)
             {

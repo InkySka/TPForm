@@ -53,6 +53,28 @@
             this.FilesInFolder = new System.Windows.Forms.TextBox();
             this.LoadedMeshesList = new System.Windows.Forms.ListView();
             this.bApplyTransformations = new System.Windows.Forms.Button();
+            this.scaleEndGroup = new System.Windows.Forms.GroupBox();
+            this.ZScaleEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.XScaleEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.YScaleEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.rotateEndGroup = new System.Windows.Forms.GroupBox();
+            this.ZRotEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.XRotEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.YRotEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.moveEndGroup = new System.Windows.Forms.GroupBox();
+            this.ZMoveEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.XMoveEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.YMoveEnd = new System.Windows.Forms.NumericUpDown();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.bInterpolate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.XMove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ZMove)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.YMove)).BeginInit();
@@ -65,6 +87,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.ZScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.XScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.YScale)).BeginInit();
+            this.scaleEndGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZScaleEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XScaleEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YScaleEnd)).BeginInit();
+            this.rotateEndGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZRotEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XRotEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YRotEnd)).BeginInit();
+            this.moveEndGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZMoveEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XMoveEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YMoveEnd)).BeginInit();
             this.SuspendLayout();
             // 
             // XMove
@@ -168,12 +202,12 @@
             this.ZRot.DecimalPlaces = 10;
             resources.ApplyResources(this.ZRot, "ZRot");
             this.ZRot.Maximum = new decimal(new int[] {
-            500000,
+            180,
             0,
             0,
             0});
             this.ZRot.Minimum = new decimal(new int[] {
-            500000,
+            180,
             0,
             0,
             -2147483648});
@@ -191,12 +225,12 @@
             this.XRot.DecimalPlaces = 10;
             resources.ApplyResources(this.XRot, "XRot");
             this.XRot.Maximum = new decimal(new int[] {
-            500000,
+            180,
             0,
             0,
             0});
             this.XRot.Minimum = new decimal(new int[] {
-            500000,
+            180,
             0,
             0,
             -2147483648});
@@ -214,12 +248,12 @@
             this.YRot.DecimalPlaces = 10;
             resources.ApplyResources(this.YRot, "YRot");
             this.YRot.Maximum = new decimal(new int[] {
-            500000,
+            180,
             0,
             0,
             0});
             this.YRot.Minimum = new decimal(new int[] {
-            500000,
+            180,
             0,
             0,
             -2147483648});
@@ -352,12 +386,281 @@
             this.bApplyTransformations.UseVisualStyleBackColor = true;
             this.bApplyTransformations.Click += new System.EventHandler(this.BApplyTransformations_Click);
             // 
+            // scaleEndGroup
+            // 
+            this.scaleEndGroup.Controls.Add(this.ZScaleEnd);
+            this.scaleEndGroup.Controls.Add(this.textBox3);
+            this.scaleEndGroup.Controls.Add(this.XScaleEnd);
+            this.scaleEndGroup.Controls.Add(this.textBox4);
+            this.scaleEndGroup.Controls.Add(this.YScaleEnd);
+            this.scaleEndGroup.Controls.Add(this.textBox5);
+            resources.ApplyResources(this.scaleEndGroup, "scaleEndGroup");
+            this.scaleEndGroup.Name = "scaleEndGroup";
+            this.scaleEndGroup.TabStop = false;
+            // 
+            // ZScaleEnd
+            // 
+            this.ZScaleEnd.AllowDrop = true;
+            this.ZScaleEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.ZScaleEnd, "ZScaleEnd");
+            this.ZScaleEnd.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.ZScaleEnd.Minimum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            -2147483648});
+            this.ZScaleEnd.Name = "ZScaleEnd";
+            this.ZScaleEnd.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBox3
+            // 
+            resources.ApplyResources(this.textBox3, "textBox3");
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            // 
+            // XScaleEnd
+            // 
+            this.XScaleEnd.AllowDrop = true;
+            this.XScaleEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.XScaleEnd, "XScaleEnd");
+            this.XScaleEnd.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.XScaleEnd.Minimum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            -2147483648});
+            this.XScaleEnd.Name = "XScaleEnd";
+            this.XScaleEnd.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBox4
+            // 
+            resources.ApplyResources(this.textBox4, "textBox4");
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            // 
+            // YScaleEnd
+            // 
+            this.YScaleEnd.AllowDrop = true;
+            this.YScaleEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.YScaleEnd, "YScaleEnd");
+            this.YScaleEnd.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.YScaleEnd.Minimum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            -2147483648});
+            this.YScaleEnd.Name = "YScaleEnd";
+            this.YScaleEnd.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // textBox5
+            // 
+            resources.ApplyResources(this.textBox5, "textBox5");
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            // 
+            // rotateEndGroup
+            // 
+            this.rotateEndGroup.Controls.Add(this.ZRotEnd);
+            this.rotateEndGroup.Controls.Add(this.textBox6);
+            this.rotateEndGroup.Controls.Add(this.XRotEnd);
+            this.rotateEndGroup.Controls.Add(this.textBox7);
+            this.rotateEndGroup.Controls.Add(this.YRotEnd);
+            this.rotateEndGroup.Controls.Add(this.textBox8);
+            resources.ApplyResources(this.rotateEndGroup, "rotateEndGroup");
+            this.rotateEndGroup.Name = "rotateEndGroup";
+            this.rotateEndGroup.TabStop = false;
+            // 
+            // ZRotEnd
+            // 
+            this.ZRotEnd.AllowDrop = true;
+            this.ZRotEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.ZRotEnd, "ZRotEnd");
+            this.ZRotEnd.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.ZRotEnd.Minimum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            -2147483648});
+            this.ZRotEnd.Name = "ZRotEnd";
+            // 
+            // textBox6
+            // 
+            resources.ApplyResources(this.textBox6, "textBox6");
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            // 
+            // XRotEnd
+            // 
+            this.XRotEnd.AllowDrop = true;
+            this.XRotEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.XRotEnd, "XRotEnd");
+            this.XRotEnd.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.XRotEnd.Minimum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            -2147483648});
+            this.XRotEnd.Name = "XRotEnd";
+            // 
+            // textBox7
+            // 
+            resources.ApplyResources(this.textBox7, "textBox7");
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            // 
+            // YRotEnd
+            // 
+            this.YRotEnd.AllowDrop = true;
+            this.YRotEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.YRotEnd, "YRotEnd");
+            this.YRotEnd.Maximum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            this.YRotEnd.Minimum = new decimal(new int[] {
+            180,
+            0,
+            0,
+            -2147483648});
+            this.YRotEnd.Name = "YRotEnd";
+            // 
+            // textBox8
+            // 
+            resources.ApplyResources(this.textBox8, "textBox8");
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            // 
+            // moveEndGroup
+            // 
+            this.moveEndGroup.Controls.Add(this.ZMoveEnd);
+            this.moveEndGroup.Controls.Add(this.textBox9);
+            this.moveEndGroup.Controls.Add(this.XMoveEnd);
+            this.moveEndGroup.Controls.Add(this.textBox10);
+            this.moveEndGroup.Controls.Add(this.YMoveEnd);
+            this.moveEndGroup.Controls.Add(this.textBox11);
+            resources.ApplyResources(this.moveEndGroup, "moveEndGroup");
+            this.moveEndGroup.Name = "moveEndGroup";
+            this.moveEndGroup.TabStop = false;
+            // 
+            // ZMoveEnd
+            // 
+            this.ZMoveEnd.AllowDrop = true;
+            this.ZMoveEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.ZMoveEnd, "ZMoveEnd");
+            this.ZMoveEnd.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.ZMoveEnd.Minimum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            -2147483648});
+            this.ZMoveEnd.Name = "ZMoveEnd";
+            // 
+            // textBox9
+            // 
+            resources.ApplyResources(this.textBox9, "textBox9");
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            // 
+            // XMoveEnd
+            // 
+            this.XMoveEnd.AllowDrop = true;
+            this.XMoveEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.XMoveEnd, "XMoveEnd");
+            this.XMoveEnd.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.XMoveEnd.Minimum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            -2147483648});
+            this.XMoveEnd.Name = "XMoveEnd";
+            // 
+            // textBox10
+            // 
+            resources.ApplyResources(this.textBox10, "textBox10");
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            // 
+            // YMoveEnd
+            // 
+            this.YMoveEnd.AllowDrop = true;
+            this.YMoveEnd.DecimalPlaces = 10;
+            resources.ApplyResources(this.YMoveEnd, "YMoveEnd");
+            this.YMoveEnd.Maximum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
+            this.YMoveEnd.Minimum = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            -2147483648});
+            this.YMoveEnd.Name = "YMoveEnd";
+            // 
+            // textBox11
+            // 
+            resources.ApplyResources(this.textBox11, "textBox11");
+            this.textBox11.Name = "textBox11";
+            this.textBox11.ReadOnly = true;
+            // 
+            // bInterpolate
+            // 
+            resources.ApplyResources(this.bInterpolate, "bInterpolate");
+            this.bInterpolate.Name = "bInterpolate";
+            this.bInterpolate.UseVisualStyleBackColor = true;
+            this.bInterpolate.Click += new System.EventHandler(this.BInterpolate_Click);
+            // 
             // TransformDialog
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bInterpolate);
+            this.Controls.Add(this.scaleEndGroup);
             this.Controls.Add(this.bApplyTransformations);
+            this.Controls.Add(this.rotateEndGroup);
             this.Controls.Add(this.LoadedMeshesList);
+            this.Controls.Add(this.moveEndGroup);
             this.Controls.Add(this.FilesInFolder);
             this.Controls.Add(this.GB_Scale);
             this.Controls.Add(this.GB_Rotate);
@@ -380,6 +683,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.ZScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.XScale)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.YScale)).EndInit();
+            this.scaleEndGroup.ResumeLayout(false);
+            this.scaleEndGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZScaleEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XScaleEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YScaleEnd)).EndInit();
+            this.rotateEndGroup.ResumeLayout(false);
+            this.rotateEndGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZRotEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XRotEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YRotEnd)).EndInit();
+            this.moveEndGroup.ResumeLayout(false);
+            this.moveEndGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ZMoveEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.XMoveEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YMoveEnd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,5 +729,27 @@
         private System.Windows.Forms.TextBox FilesInFolder;
         private System.Windows.Forms.ListView LoadedMeshesList;
         private System.Windows.Forms.Button bApplyTransformations;
+        private System.Windows.Forms.GroupBox scaleEndGroup;
+        private System.Windows.Forms.NumericUpDown ZScaleEnd;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.NumericUpDown XScaleEnd;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.NumericUpDown YScaleEnd;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.GroupBox rotateEndGroup;
+        private System.Windows.Forms.NumericUpDown ZRotEnd;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.NumericUpDown XRotEnd;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.NumericUpDown YRotEnd;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.GroupBox moveEndGroup;
+        private System.Windows.Forms.NumericUpDown ZMoveEnd;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.NumericUpDown XMoveEnd;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.NumericUpDown YMoveEnd;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Button bInterpolate;
     }
 }

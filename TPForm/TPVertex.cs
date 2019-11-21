@@ -9,7 +9,7 @@ namespace TPMeshEditor
     /// <summary>
     /// Defines a vertex.
     /// </summary>
-    public class TPVertex : ILoggable, IByteArrayCapable, ITransformable
+    public class TPVertex : ILoggable, IByteArrayCapable
     {
         /// <summary>
         /// Initialises the vertex from a raw data array.
@@ -130,11 +130,11 @@ namespace TPMeshEditor
             Unknown_Reserved = _ukn_res;
         }
 
-        public void Transform(float[,] _matrix)
+        public void Transform(double[,] _matrix)
         {
-            float newX = _matrix[0,0] * X + _matrix[0,1] * Y + _matrix[0,2] * Z + _matrix[0,3];
-            float newY = _matrix[1,0] * X + _matrix[1,1] * Y + _matrix[1,2] * Z + _matrix[1,3];
-            float newZ = _matrix[2,0] * X + _matrix[2,1] * Y + _matrix[2,2] * Z + _matrix[2,3];
+            float newX = (float)(_matrix[0,0] * X + _matrix[0,1] * Y + _matrix[0,2] * Z + _matrix[0,3]);
+            float newY = (float)(_matrix[1,0] * X + _matrix[1,1] * Y + _matrix[1,2] * Z + _matrix[1,3]);
+            float newZ = (float)(_matrix[2,0] * X + _matrix[2,1] * Y + _matrix[2,2] * Z + _matrix[2,3]);
 
             X = newX;
             Y = newY;

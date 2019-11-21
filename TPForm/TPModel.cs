@@ -182,11 +182,21 @@ namespace TPMeshEditor
             return output;
         }
 
-        public void Transform(float[,] _matrix)
+        public void Transform(TransformationMatrix _matrix)
         {
-            foreach(TPVertex v in Vertices)
+            if (_matrix.Layers <= 1)
             {
-                v.Transform(_matrix);
+                foreach (TPVertex v in Vertices)
+                {
+                    v.Transform(_matrix.GetNthLayer(0));
+                }
+            }
+            else
+            {
+                for (int i = 0; i < (int)VertexCount; ++i)
+                {
+                    Vertices[i].Transform(_matrix.GetNthLayer(i));
+                }
             }
         }
 

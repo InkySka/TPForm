@@ -54,6 +54,7 @@
     <Compile Include="ConfirmationDialog.Designer.cs">
       <DependentUpon>ConfirmationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransformationMatrix.cs" />
     <Compile Include="FileOperations.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="MeshDetailsWindow.cs">

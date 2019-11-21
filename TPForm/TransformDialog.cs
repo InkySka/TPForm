@@ -34,6 +34,7 @@ namespace TPMeshEditor
 
         public delegate void logChangedDel(string str);
         public event logChangedDel LogChangedEvent;
+        private bool doInterpolation = false;
 
         private void EditLog(string logEntry)
         {
@@ -84,13 +85,29 @@ namespace TPMeshEditor
 
             if (confirm.DialogResult == DialogResult.OK)
             {
-                Global.FillTransformationMatrix((double)XMove.Value, (double)YMove.Value, (double)ZMove.Value,
-                    (double)XRot.Value,(double)YRot.Value,(double)ZRot.Value,
-                    (double)XScale.Value, (double)YScale.Value, (double)ZScale.Value);
-
                 foreach (int i in LoadedMeshesList.CheckedIndices)
                 {
-                    Global.meshes[i].Transform(Global.transformationMatrix);
+                    for(int j = 0; j < Global.meshes[i].Models.Count; ++j)
+                    {
+                        TransformationMatrix tmat = new TransformationMatrix(4, 4);
+                        if (!doInterpolation)
+                        {
+                            tmat.importMatrix(TransformationMatrix.GetTransformationMatrix((double)XMove.Value, (double)YMove.Value, (double)ZMove.Value,
+                                Global.ToRadians((double)XRot.Value), Global.ToRadians((double)YRot.Value), Global.ToRadians((double)ZRot.Value),
+                                (double)XScale.Value, (double)YScale.Value, (double)ZScale.Value));
+                        }
+                        else
+                        {
+                            tmat.importMatrix(TransformationMatrix.GetInterpolatedTransformationMatrix(
+                                (double)XMove.Value, (double)YMove.Value, (double)ZMove.Value, (double)XMoveEnd.Value, (double)YMoveEnd.Value, (double)ZMoveEnd.Value,
+                                 Global.ToRadians((double)XRot.Value), Global.ToRadians((double)YRot.Value), Global.ToRadians((double)ZRot.Value), Global.ToRadians((double)XRotEnd.Value), Global.ToRadians((double)YRotEnd.Value), Global.ToRadians((double)ZRotEnd.Value),
+                                (double)XScale.Value, (double)YScale.Value, (double)ZScale.Value, (double)XScaleEnd.Value, (double)YScaleEnd.Value, (double)ZScaleEnd.Value,
+                                (int)Global.meshes[i].Models[j].VertexCount));
+                            //this.EditLog("Vertex count: " + (int)Global.meshes[i].Models[j].VertexCount);
+                        }
+                        
+                        Global.meshes[i].Models[j].Transform(tmat);
+                    }
                     Global.meshes[i].Export();
                 }
             }
@@ -116,6 +133,19 @@ namespace TPMeshEditor
             {
                 bApplyTransformations.Enabled = false;
             }
+        }
+
+        private void BInterpolate_Click(object sender, EventArgs e)
+        {
+            doInterpolation = !doInterpolation;
+            moveEndGroup.Enabled = !moveEndGroup.Enabled;
+            scaleEndGroup.Enabled = !scaleEndGroup.Enabled;
+            rotateEndGroup.Enabled = !rotateEndGroup.Enabled;
+        }
+
+        private void NumericUpDown1_ValueChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

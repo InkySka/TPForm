@@ -7,13 +7,13 @@ using System.Runtime.InteropServices;
 
 namespace TPMeshEditor
 {
-    /// <summary>
+    /*/// <summary>
     /// Interface for classes which can accept a transformation matrix.
     /// </summary>
     interface ITransformable
     {
-        void Transform(float[,] _matrix);
-    }
+        void Transform(TransformationMatrix _matrix);
+    }*/
 
     /// <summary>
     /// Interface that defines functions to read logs.

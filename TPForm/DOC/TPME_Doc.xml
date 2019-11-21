@@ -21,6 +21,12 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:TPMeshEditor.TransformationMatrix.ResetToIdentity">
+            <summary>
+            Set <see cref="P:TPMeshEditor.TransformationMatrix.Matrix"/> to the Identity matrix.
+            </summary>
+            <returns>0 upon success; -1 if the matrix is not square.</returns>
+        </member>
         <member name="T:TPMeshEditor.FileOperations">
             <summary>
             Class that holds the current directory and provides the list of files to work on.
@@ -125,11 +131,6 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="T:TPMeshEditor.ITransformable">
-            <summary>
-            Interface for classes which can accept a transformation matrix.
             </summary>
         </member>
         <member name="T:TPMeshEditor.ILoggable">
